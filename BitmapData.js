@@ -18,17 +18,17 @@ this.createjs = this.createjs || {};
 
 	/**
 	* The BitmapData for EaselJS provides the BitmapData class like ActionScript3.0 to the EaselJS. The BitmapData class does not inherit the DisplayObject class of the EaselJS, so that use the Bitmap class to display it on the Stage. This flow is similar to Flash. But please pass the canvas property of the BitmapData instance (instead of BitmapData instance) to the constructor of the Bitmap class.<br><br>
-	* BitmapData for EaselJSは、EaselJSにActionScript3.0と同様のBitmapDataクラスを提供します。BitmapDataクラスはDisplayObjectを継承していないため、実際にStage上に表示するにはBitmapクラスを使います。この流れはFlashと同様ですが、BitmapクラスのコンストラクタにはBitmapDataインスタンスではなく、BitmapDataインスタンスのcanvasプロパティを渡して下さい。
+	* BitmapData for EaselJSã¯ã€EaselJSã«ActionScript3.0ã¨åŒæ§˜ã®BitmapDataã‚¯ãƒ©ã‚¹ã‚’æä¾›ã—ã¾ã™ã€‚BitmapDataã‚¯ãƒ©ã‚¹ã¯DisplayObjectã‚’ç¶™æ‰¿ã—ã¦ã„ãªã„ãŸã‚ã€å®Ÿéš›ã«Stageä¸Šã«è¡¨ç¤ºã™ã‚‹ã«ã¯Bitmapã‚¯ãƒ©ã‚¹ã‚’ä½¿ã„ã¾ã™ã€‚ã“ã®æµã‚Œã¯Flashã¨åŒæ§˜ã§ã™ãŒã€Bitmapã‚¯ãƒ©ã‚¹ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã«ã¯BitmapDataã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã§ã¯ãªãã€BitmapDataã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®canvasãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’æ¸¡ã—ã¦ä¸‹ã•ã„ã€‚
 	* @class BitmapData
 	* @constructor
 	* @param [image=null] {HTMLImageElement | HTMLCanvasElement | HTMLVideoElement} If you specify an object to this parameter, the object will be drawn to the bitmapdata which is created. The specified object must be finished its loading. If you want to create a bitmapdata by fill, please specify the null.<br>
-	* この引数を指定すると指定したオブジェクトが描画されたBitmapDataが作成されます。指定するオブジェクトは、読み込みが終わっている必要があります。塗りのBitmapDataを作成したい場合は、nullを指定して下さい。
+	* ã“ã®å¼•æ•°ã‚’æŒ‡å®šã™ã‚‹ã¨æŒ‡å®šã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒæç”»ã•ã‚ŒãŸBitmapDataãŒä½œæˆã•ã‚Œã¾ã™ã€‚æŒ‡å®šã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¯ã€èª­ã¿è¾¼ã¿ãŒçµ‚ã‚ã£ã¦ã„ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚å¡—ã‚Šã®BitmapDataã‚’ä½œæˆã—ãŸã„å ´åˆã¯ã€nullã‚’æŒ‡å®šã—ã¦ä¸‹ã•ã„ã€‚
 	* @param [width=image.width] {uint} The width of the image in pixels. If the image is null, the default value is 300.<br>
-	* BitmapDataの幅です。imageがnullの場合のdefault値は300です。
+	* BitmapDataã®å¹…ã§ã™ã€‚imageãŒnullã®å ´åˆã®defaultå€¤ã¯300ã§ã™ã€‚
 	* @param [height=image.height] {uint} THe height of the image in pixels. If the image is null, the default value is 150.<br>
-	* BitmapDataの高さです。imageがnullの場合のdefault値は150です。
+	* BitmapDataã®é«˜ã•ã§ã™ã€‚imageãŒnullã®å ´åˆã®defaultå€¤ã¯150ã§ã™ã€‚
 	* @param [fillColor=undefined] {String | uint} If you want to create a bitmapdata by fill, please specify this parameter. You can use a CSS compatible color value (ex. "#FF0000", "rgba(255,0,0,0.5)") or a 32-bit ARGB color value(ex. 0x80FF0000). If you want to create a transparent bitmapdata, please omit this parameter.<br>
-	* 塗りのBitmapDataを作成する場合に指定します。CSS文字列と0xAARRGGBB形式の16進数値が使えます。透明なBitmapDataを作成したい場合は、この引数を省略して下さい。
+	* å¡—ã‚Šã®BitmapDataã‚’ä½œæˆã™ã‚‹å ´åˆã«æŒ‡å®šã—ã¾ã™ã€‚CSSæ–‡å­—åˆ—ã¨0xAARRGGBBå½¢å¼ã®16é€²æ•°å€¤ãŒä½¿ãˆã¾ã™ã€‚é€æ˜ŽãªBitmapDataã‚’ä½œæˆã—ãŸã„å ´åˆã¯ã€ã“ã®å¼•æ•°ã‚’çœç•¥ã—ã¦ä¸‹ã•ã„ã€‚
 	* @example
 	* <pre><code>_bmd01 = new createjs.BitmapData(HTMLImageElement);
 _bitmap01 = new createjs.Bitmap(_bmd01.canvas);
@@ -46,7 +46,7 @@ _stage.addChild(_bitmap02);</code></pre>
 
 		/**
 		* A HTMLCanvasElement that bitmapdata is drawn.<br>
-		* BitmapDataが描画されるHTMLCanvasElementです。
+		* BitmapDataãŒæç”»ã•ã‚Œã‚‹HTMLCanvasElementã§ã™ã€‚
 		* @property canvas
 		* @type HTMLCanvasElement
 		**/
@@ -54,7 +54,7 @@ _stage.addChild(_bitmap02);</code></pre>
 
 		/**
 		* A CanvasRenderingContext2D of the canvas.<br>
-		* canvasのCanvasRenderingContext2Dです。
+		* canvasã®CanvasRenderingContext2Dã§ã™ã€‚
 		* @property context
 		* @type CanvasRenderingContext2D
 		**/
@@ -62,7 +62,7 @@ _stage.addChild(_bitmap02);</code></pre>
 
 		/**
 		* A name of the bitmapdata. It's used in toString().<br>
-		* BitmapDataの名前です。toString()で使用されます。
+		* BitmapDataã®åå‰ã§ã™ã€‚toString()ã§ä½¿ç”¨ã•ã‚Œã¾ã™ã€‚
 		* @property name
 		* @type String
 		* @default null
@@ -85,13 +85,13 @@ _stage.addChild(_bitmap02);</code></pre>
 
 	/**
 	* This method gets as a bitmapdata from cache of the DisplayObject. A bitmapData provided by this method is the reference of the DisplayObject's cache. If you called updateCache() at the DisplayObject, you must call updateImageData() at the Bitmapdata.<br>
-	* cache()されたDisplayObjectのサブクラスをBitmapDataとして取得します。このメソッドで得られるBitmapDataは、DisplayObjectのcacheの参照です。updateCache()を実行した場合は、取得したBitmapDataも更新されるため、updateImageData()を実行して下さい。
+	* cache()ã•ã‚ŒãŸDisplayObjectã®ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã‚’BitmapDataã¨ã—ã¦å–å¾—ã—ã¾ã™ã€‚ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§å¾—ã‚‰ã‚Œã‚‹BitmapDataã¯ã€DisplayObjectã®cacheã®å‚ç…§ã§ã™ã€‚updateCache()ã‚’å®Ÿè¡Œã—ãŸå ´åˆã¯ã€å–å¾—ã—ãŸBitmapDataã‚‚æ›´æ–°ã•ã‚Œã‚‹ãŸã‚ã€updateImageData()ã‚’å®Ÿè¡Œã—ã¦ä¸‹ã•ã„ã€‚
 	* @static
 	* @method getBitmapData
 	* @param object {DisplayObject} The DisplayObject to get as a bitmapdata. The DisplayObject must be called cache().<br>
-	* BitmapDataとして取得したいDisplayObjectのサブクラスを指定します。DisplayObjectはcache()されている必要があります。
+	* BitmapDataã¨ã—ã¦å–å¾—ã—ãŸã„DisplayObjectã®ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã‚’æŒ‡å®šã—ã¾ã™ã€‚DisplayObjectã¯cache()ã•ã‚Œã¦ã„ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚
 	* @return {BitmapData} A bitmapdata got from the DisplayObject's cache.<br>
-	* DisplayObjectのcacheをBitmapDataとして返します。
+	* DisplayObjectã®cacheã‚’BitmapDataã¨ã—ã¦è¿”ã—ã¾ã™ã€‚
 	* @example
 	* <pre><code>_shape = new createjs.Shape();
 var g = _shape.graphics;
@@ -125,7 +125,7 @@ _stage.addChild(_shape);</code></pre>
 	var p = BitmapData.prototype = {
 		/**
 		* [read only] The width of the bitmapdata in pixels.<br>
-		* BitmapDataの幅です。
+		* BitmapDataã®å¹…ã§ã™ã€‚
 		* @property width
 		* @type uint
 		* @readOnly
@@ -136,7 +136,7 @@ _stage.addChild(_shape);</code></pre>
 
 		/**
 		* [read only] The height of the bitmapdata in pixels.<br>
-		* BitmapDataの高さです。
+		* BitmapDataã®é«˜ã•ã§ã™ã€‚
 		* @property height
 		* @type uint
 		* @readOnly
@@ -147,7 +147,7 @@ _stage.addChild(_shape);</code></pre>
 
 		/**
 		* [read only] A rectangle object that defines the size and location of the bitmapdata.<br>
-		* BitmapDataの位置とサイズを示すRectangleです。
+		* BitmapDataã®ä½ç½®ã¨ã‚µã‚¤ã‚ºã‚’ç¤ºã™Rectangleã§ã™ã€‚
 		* @property rect
 		* @type Rectangle
 		* @readOnly
@@ -161,16 +161,16 @@ _stage.addChild(_shape);</code></pre>
 
 	/**
 	* Apply the filter to the source object and generates the filtered image. You can also specify the current bitmapdata as a source.<br>
-	* ソースオブジェクトにFilterを適用し、現在のBitmapDataに貼付けます。sourceには、現在のBitmapDataを指定することもできます。
+	* ã‚½ãƒ¼ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«Filterã‚’é©ç”¨ã—ã€ç¾åœ¨ã®BitmapDataã«è²¼ä»˜ã‘ã¾ã™ã€‚sourceã«ã¯ã€ç¾åœ¨ã®BitmapDataã‚’æŒ‡å®šã™ã‚‹ã“ã¨ã‚‚ã§ãã¾ã™ã€‚
 	* @method applyFilter
 	* @param source {BitmapData | DisplayObject | Stage | HTMLImageElement | HTMLCanvasElement | HTMLVideoElement} An object to be used as a source.<br>
-	* ソースとなるオブジェクトを指定します。
+	* ã‚½ãƒ¼ã‚¹ã¨ãªã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æŒ‡å®šã—ã¾ã™ã€‚
 	* @param sourceRect {Rectangle} A rectangle object that defines the area of the source.<br>
-	* ソースオブジェクトの範囲を示すRectangleです。
+	* ã‚½ãƒ¼ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ç¯„å›²ã‚’ç¤ºã™Rectangleã§ã™ã€‚
 	* @param destPoint {Point} The point within the destination image that corresponds to the upper-left corner of the source rectangle.<br>
-	* Filterを適用したイメージが配置される左上の座標を示すPointです。
+	* Filterã‚’é©ç”¨ã—ãŸã‚¤ãƒ¡ãƒ¼ã‚¸ãŒé…ç½®ã•ã‚Œã‚‹å·¦ä¸Šã®åº§æ¨™ã‚’ç¤ºã™Pointã§ã™ã€‚
 	* @param filter {Filter} The filter object that you want to use.<br>
-	* 適用するFilterを指定します。
+	* é©ç”¨ã™ã‚‹Filterã‚’æŒ‡å®šã—ã¾ã™ã€‚
 	* @example
 	* <pre><code>_bmd01 = new createjs.BitmapData(_image01);
 var source = _bmd01;
@@ -205,16 +205,16 @@ _bmd01.applyFilter(source, sourceRect, destPoint, filter);</code></pre>
 
 	/**
 	* Clears the pixels in the specified area. The color of pixels will be transparent black.<br>
-	* 指定された領域のピクセルを透明な黒にして消去します。
+	* æŒ‡å®šã•ã‚ŒãŸé ˜åŸŸã®ãƒ”ã‚¯ã‚»ãƒ«ã‚’é€æ˜Žãªé»’ã«ã—ã¦æ¶ˆåŽ»ã—ã¾ã™ã€‚
 	* @method clearRect
 	* @param x {Number} The x coordinate of the upper-left corner in the area to be cleared.<br>
-	* 消去する領域の左上x座標です。
+	* æ¶ˆåŽ»ã™ã‚‹é ˜åŸŸã®å·¦ä¸Šxåº§æ¨™ã§ã™ã€‚
 	* @param y {Number} The y coordinate of the upper-left corner in the area to be cleared.<br>
-	* 消去する領域の左上y座標です。
+	* æ¶ˆåŽ»ã™ã‚‹é ˜åŸŸã®å·¦ä¸Šyåº§æ¨™ã§ã™ã€‚
 	* @param width {Number} The width of the area to be cleared.<br>
-	* 消去する領域の幅です。
+	* æ¶ˆåŽ»ã™ã‚‹é ˜åŸŸã®å¹…ã§ã™ã€‚
 	* @param height {Number} The height of the area to be cleared.<br>
-	* 消去する領域の高さです。
+	* æ¶ˆåŽ»ã™ã‚‹é ˜åŸŸã®é«˜ã•ã§ã™ã€‚
 	* @example
 	* <pre><code>var x = 50;
 var y = 50;
@@ -229,10 +229,10 @@ _bmd01.clearRect(x, y, width, height);</code></pre>
 
 	/**
 	* Creates a clone of the current bitmapdata.<br>
-	* 現在のBitmapDataのクローンを作成します。
+	* ç¾åœ¨ã®BitmapDataã®ã‚¯ãƒ­ãƒ¼ãƒ³ã‚’ä½œæˆã—ã¾ã™ã€‚
 	* @method clone
 	* @return {BitmapData} A clone of the current bitmapdata.<br>
-	* 現在のBitmapDataのクローンです。
+	* ç¾åœ¨ã®BitmapDataã®ã‚¯ãƒ­ãƒ¼ãƒ³ã§ã™ã€‚
 	**/
 	p.clone = function() {
 		var bmd = Object.create(BitmapData.prototype);
@@ -250,12 +250,12 @@ _bmd01.clearRect(x, y, width, height);</code></pre>
 
 	/**
 	* Adjusts the color value in a specified area of the bitmapdata by using a ColorTransform object.<br>
-	* ColorTransformオブジェクトを使用して、BitmapDataの特定領域のカラー値を調整します。
+	* ColorTransformã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½¿ç”¨ã—ã¦ã€BitmapDataã®ç‰¹å®šé ˜åŸŸã®ã‚«ãƒ©ãƒ¼å€¤ã‚’èª¿æ•´ã—ã¾ã™ã€‚
 	* @method colorTransform
 	* @param rect {Rectangle} A Rectangle object that defines the area of the bitmapdata in which the ColorTransform is applied.<br>
-	* ColorTransformを適用する領域を示すRectangleです。
+	* ColorTransformã‚’é©ç”¨ã™ã‚‹é ˜åŸŸã‚’ç¤ºã™Rectangleã§ã™ã€‚
 	* @param colorTransform {ColorTransform} A ColorTransform object to apply.<br>
-	* 適用するColorTransformオブジェクトです。
+	* é©ç”¨ã™ã‚‹ColorTransformã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã§ã™ã€‚
 	* @example
 	* <pre><code>_bmd01 = new createjs.BitmapData(_image01);
 var halfW = _image01.width &gt;&gt; 1;
@@ -287,14 +287,14 @@ _bmd01.colorTransform(rect, colorTransform);</code></pre>
 
 	/**
 	* Compares the current bitmapdata with the object of the 1st parameter, and then returns a new bitmapdata that has the difference between the pixels in the two source objects.<br>
-	* 現在のBitmapDataと引数のオブジェクトのピクセルを比較し、その差分ピクセルを持つ新しいBitmapDataを返します。
+	* ç¾åœ¨ã®BitmapDataã¨å¼•æ•°ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒ”ã‚¯ã‚»ãƒ«ã‚’æ¯”è¼ƒã—ã€ãã®å·®åˆ†ãƒ”ã‚¯ã‚»ãƒ«ã‚’æŒã¤æ–°ã—ã„BitmapDataã‚’è¿”ã—ã¾ã™ã€‚
 	* @method compare
 	* @param otherSource {BitmapData | DisplayObject | Stage | HTMLImageElement | HTMLCanvasElement | HTMLVideoElement} An object to compare.<br>
-	* 比較に使用するオブジェクトです。
+	* æ¯”è¼ƒã«ä½¿ç”¨ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã§ã™ã€‚
 	* @return {BitmapData | int} If the two objects have the same dimensions (width and height), the method returns a new bitmapdata that has the difference between the pixels in the two objects.<br>
 	If the two objects have the same dimensions and same pixels, the method returns the number 0.<br>
 	If the width of the two objects are not equal, the method returns the number -3. Else if the height of the two objects are not equal, the method returns the number -4.<br>
-	* 2つのオブジェクトの幅と高さが等しければ、2つのオブジェクトの差分ピクセルを持つ新しいBitmapDataを返します。<br>幅と高さ、及びすべてのピクセルが等しい場合、数値 0 を返します。<br>幅が等しくない場合、数値 -3 を返します。<br>幅が等しく、高さが等しくない場合、数値 -4 を返します。
+	* 2ã¤ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å¹…ã¨é«˜ã•ãŒç­‰ã—ã‘ã‚Œã°ã€2ã¤ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å·®åˆ†ãƒ”ã‚¯ã‚»ãƒ«ã‚’æŒã¤æ–°ã—ã„BitmapDataã‚’è¿”ã—ã¾ã™ã€‚<br>å¹…ã¨é«˜ã•ã€åŠã³ã™ã¹ã¦ã®ãƒ”ã‚¯ã‚»ãƒ«ãŒç­‰ã—ã„å ´åˆã€æ•°å€¤ 0 ã‚’è¿”ã—ã¾ã™ã€‚<br>å¹…ãŒç­‰ã—ããªã„å ´åˆã€æ•°å€¤ -3 ã‚’è¿”ã—ã¾ã™ã€‚<br>å¹…ãŒç­‰ã—ãã€é«˜ã•ãŒç­‰ã—ããªã„å ´åˆã€æ•°å€¤ -4 ã‚’è¿”ã—ã¾ã™ã€‚
 	* @example
 	* <pre><code>_bmd01 = new createjs.BitmapData(_image01);
 _bmd03 = new createjs.BitmapData(_image02);
@@ -353,18 +353,18 @@ _bitmap01.y = _bitmap02.y = _bitmap03.y = 80;</code></pre>
 
 	/**
 	* Transfers one of channel in the source object to the current bitmapdata's channel.<br>
-	* ソースオブジェクトの1つのチャンネルを現在のBitmapDataのチャンネルに転送します。
+	* ã‚½ãƒ¼ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®1ã¤ã®ãƒãƒ£ãƒ³ãƒãƒ«ã‚’ç¾åœ¨ã®BitmapDataã®ãƒãƒ£ãƒ³ãƒãƒ«ã«è»¢é€ã—ã¾ã™ã€‚
 	* @method copyChannel
 	* @param source {BitmapData | DisplayObject | Stage | HTMLImageElement | HTMLCanvasElement | HTMLVideoElement} An object to use as a source.<br>
-	* ソースとなるオブジェクトを指定します。
+	* ã‚½ãƒ¼ã‚¹ã¨ãªã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æŒ‡å®šã—ã¾ã™ã€‚
 	* @param sourceRect {Rectangle} A rectangle object that defines the area of the source.<br>
-	* ソースオブジェクトの範囲を示すRectangleです。
+	* ã‚½ãƒ¼ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ç¯„å›²ã‚’ç¤ºã™Rectangleã§ã™ã€‚
 	* @param destPoint {Point} The destination Point that represents the upper-left corner of the destination bitmapdata.<br>
-	* データが配置される左上の座標を示すPointです。
+	* ãƒ‡ãƒ¼ã‚¿ãŒé…ç½®ã•ã‚Œã‚‹å·¦ä¸Šã®åº§æ¨™ã‚’ç¤ºã™Pointã§ã™ã€‚
 	* @param sourceChannel {uint} A channel of the source object. You can use the constant of the BitmapDataChannel class.<br>
-	* ソースオブジェクトのチャンネルを指定します。BitmapDataChannelクラスの定数が使用できます。
+	* ã‚½ãƒ¼ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒãƒ£ãƒ³ãƒãƒ«ã‚’æŒ‡å®šã—ã¾ã™ã€‚BitmapDataChannelã‚¯ãƒ©ã‚¹ã®å®šæ•°ãŒä½¿ç”¨ã§ãã¾ã™ã€‚
 	* @param destChannel {uint} A channel of the destination bitmapdata. You can use the constant of the BitmapDataChannel class.<br>
-	* 転送先のチャンネルを指定します。BitmapDataChannelクラスの定数が使用できます。
+	* è»¢é€å…ˆã®ãƒãƒ£ãƒ³ãƒãƒ«ã‚’æŒ‡å®šã—ã¾ã™ã€‚BitmapDataChannelã‚¯ãƒ©ã‚¹ã®å®šæ•°ãŒä½¿ç”¨ã§ãã¾ã™ã€‚
 	* @example
 	* <pre><code>_bmd01 = new createjs.BitmapData(_image01);
 var source = _image02;
@@ -399,20 +399,20 @@ _bmd01.copyChannel(source, sourceRect, destPoint, sourceChannel, destChannel);</
 
 	/**
 	* Copies the pixels from the source object to the current bitmapdata.<br>
-	* ソースオブジェクトを現在のBitmapDataに貼り付けます。
+	* ã‚½ãƒ¼ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç¾åœ¨ã®BitmapDataã«è²¼ã‚Šä»˜ã‘ã¾ã™ã€‚
 	* @method copyPixels
 	* @param source {BitmapData | DisplayObject | Stage | HTMLImageElement | HTMLCanvasElement | HTMLVideoElement} An object to use as a source.<br>
-	* ソースとなるオブジェクトを指定します。
+	* ã‚½ãƒ¼ã‚¹ã¨ãªã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æŒ‡å®šã—ã¾ã™ã€‚
 	* @param sourceRect {Rectangle} A rectangle object that defines the area of the source.<br>
-	* ソースオブジェクトの範囲を示すRectangleです。
+	* ã‚½ãƒ¼ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ç¯„å›²ã‚’ç¤ºã™Rectangleã§ã™ã€‚
 	* @param destPoint {Point} The destination Point that represents the upper-left corner of the destination bitmapdata.<br>
-	* 貼り付け先の左上座標を示すPointです。
+	* è²¼ã‚Šä»˜ã‘å…ˆã®å·¦ä¸Šåº§æ¨™ã‚’ç¤ºã™Pointã§ã™ã€‚
 	* @param [alphaSource=null] {BitmapData | DisplayObject | Stage | HTMLImageElement | HTMLCanvasElement | HTMLVideoElement} An object to use as a source of the alpha channel.<br>
-	* アルファチャンネルのソースとなるオブジェクトを指定します。
+	* ã‚¢ãƒ«ãƒ•ã‚¡ãƒãƒ£ãƒ³ãƒãƒ«ã®ã‚½ãƒ¼ã‚¹ã¨ãªã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æŒ‡å®šã—ã¾ã™ã€‚
 	* @param [alphaPoint=null] {Point} The point that represents the upper-left corner of the alphaSource.<br>
-	* alphaSourceの左上座標を示すPointです。
+	* alphaSourceã®å·¦ä¸Šåº§æ¨™ã‚’ç¤ºã™Pointã§ã™ã€‚
 	* @param [mergeAlpha=false] {Boolean} If you want to use the alpha channel, set the value to true.<br>
-	* 貼り付け時にアルファチャンネルを使用するにはtrueを指定します。
+	* è²¼ã‚Šä»˜ã‘æ™‚ã«ã‚¢ãƒ«ãƒ•ã‚¡ãƒãƒ£ãƒ³ãƒãƒ«ã‚’ä½¿ç”¨ã™ã‚‹ã«ã¯trueã‚’æŒ‡å®šã—ã¾ã™ã€‚
 	* @example
 	* <pre><code>_bmd01 = new createjs.BitmapData(null, 640, 360, 0xCCCCCC);
 var source = _image01;
@@ -467,7 +467,7 @@ _bmd01.copyPixels(source, sourceRect, destPoint, alphaSource, alphaPoint, mergeA
 
 	/**
 	* Frees the memory that is used to store the bitmapdata.<br>
-	* BitmapDataオブジェクトの格納に使用されるメモリを解放します。
+	* BitmapDataã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ ¼ç´ã«ä½¿ç”¨ã•ã‚Œã‚‹ãƒ¡ãƒ¢ãƒªã‚’è§£æ”¾ã—ã¾ã™ã€‚
 	* @method dispose
 	**/
 	p.dispose = function() {
@@ -478,20 +478,20 @@ _bmd01.copyPixels(source, sourceRect, destPoint, alphaSource, alphaPoint, mergeA
 
 	/**
 	* Draws the source object to the current bitmapdata.<br>
-	* ソースオブジェクトを現在のBitmapDataに描画します。
+	* ã‚½ãƒ¼ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç¾åœ¨ã®BitmapDataã«æç”»ã—ã¾ã™ã€‚
 	* @method draw
 	* @param source {BitmapData | DisplayObject | Stage | HTMLImageElement | HTMLCanvasElement | HTMLVideoElement} An object to use as a source.<br>
-	* ソースとなるオブジェクトを指定します。
+	* ã‚½ãƒ¼ã‚¹ã¨ãªã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æŒ‡å®šã—ã¾ã™ã€‚
 	* @param [matrix=null] {Matrix2D} A Matrix2D object to be applied to the source object. If you don't want to apply the transformation matrix, set the value to null.<br>
-	* ソースオブジェクトに適用する変換行列を指定します。変換行列を指定したくない場合はnullを指定して下さい。
+	* ã‚½ãƒ¼ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«é©ç”¨ã™ã‚‹å¤‰æ›è¡Œåˆ—ã‚’æŒ‡å®šã—ã¾ã™ã€‚å¤‰æ›è¡Œåˆ—ã‚’æŒ‡å®šã—ãŸããªã„å ´åˆã¯nullã‚’æŒ‡å®šã—ã¦ä¸‹ã•ã„ã€‚
 	* @param [colorTransform=null] {ColorTransform} A ColorTransform object to be applied to the source object. If you don't want to apply the color transformation, set the value to null.<br>
-	* ソースオブジェクトに適用するColorTransformオブジェクトを指定します。ColorTransformを適用したくない場合はnullを指定して下さい。
+	* ã‚½ãƒ¼ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«é©ç”¨ã™ã‚‹ColorTransformã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æŒ‡å®šã—ã¾ã™ã€‚ColorTransformã‚’é©ç”¨ã—ãŸããªã„å ´åˆã¯nullã‚’æŒ‡å®šã—ã¦ä¸‹ã•ã„ã€‚
 	* @param [compositeOperation=null] {String} A string value that represents the globalCompositeOperation value of the CanvasRenderingContext2D when drawn.<br>
-	* 描画時のcanvasのglobalCompositeOperationの値です。
+	* æç”»æ™‚ã®canvasã®globalCompositeOperationã®å€¤ã§ã™ã€‚
 	* @param [clipRect=null] {Rectangle} A rectangle object that defines the clipping area of the source object.<br>
-	* 描画時のクリッピング領域を示すRectangleです。
+	* æç”»æ™‚ã®ã‚¯ãƒªãƒƒãƒ”ãƒ³ã‚°é ˜åŸŸã‚’ç¤ºã™Rectangleã§ã™ã€‚
 	* @param [smoothing=false] {Boolean} A Boolean value that determines whether or not to use the smoothing option when drawn.<br>
-	* 描画時にスムージングを適用するかをBool値で指定します。
+	* æç”»æ™‚ã«ã‚¹ãƒ ãƒ¼ã‚¸ãƒ³ã‚°ã‚’é©ç”¨ã™ã‚‹ã‹ã‚’Boolå€¤ã§æŒ‡å®šã—ã¾ã™ã€‚
 	* @example
 	* <pre><code>var matrix = new createjs.Matrix2D(1, 0, 0, 1, -_sourceRect.width &gt;&gt; 1, -_sourceRect.height &gt;&gt; 1);
 var rotation = Math.random() * 360 &gt;&gt; 0;
@@ -556,26 +556,26 @@ _bmd01.draw(_source, matrix, colorTransform, compositeOperation, clipRect, smoot
 
 	/**
 	* Draws the source object to the current bitmapdata. The method works faster than draw() because it doesn't apply the transformation matrix and the color transfomation. The method provides the same operation as drawImage() of the CanvasRenderingContext2D.<br>
-	* ソースオブジェクトを現在のBitmapDataに描画します。変換行列やColorTransformを使用しないので、draw()よりも高速に動作します。このメソッドは、CanvasRenderingContext2DのdrawImage()と同様の動作を提供します。
+	* ã‚½ãƒ¼ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç¾åœ¨ã®BitmapDataã«æç”»ã—ã¾ã™ã€‚å¤‰æ›è¡Œåˆ—ã‚„ColorTransformã‚’ä½¿ç”¨ã—ãªã„ã®ã§ã€draw()ã‚ˆã‚Šã‚‚é«˜é€Ÿã«å‹•ä½œã—ã¾ã™ã€‚ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€CanvasRenderingContext2Dã®drawImage()ã¨åŒæ§˜ã®å‹•ä½œã‚’æä¾›ã—ã¾ã™ã€‚
 	* @method drawImage
 	* @param source {BitmapData | DisplayObject | Stage | HTMLImageElement | HTMLCanvasElement | HTMLVideoElement} An object to use as a source.<br>
-	* ソースとなるオブジェクトを指定します。
+	* ã‚½ãƒ¼ã‚¹ã¨ãªã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æŒ‡å®šã—ã¾ã™ã€‚
 	* @param [sx=0] {Number} The x coordinate of the upper-left corner in the source object. If you omit the 6th and subsequent parameters, the value is treated as dx.<br>
-	* ソースオブジェクトの左上x座標です。第6引数以降を省略した場合、この引数はdxとして動作します。
+	* ã‚½ãƒ¼ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å·¦ä¸Šxåº§æ¨™ã§ã™ã€‚ç¬¬6å¼•æ•°ä»¥é™ã‚’çœç•¥ã—ãŸå ´åˆã€ã“ã®å¼•æ•°ã¯dxã¨ã—ã¦å‹•ä½œã—ã¾ã™ã€‚
 	* @param [sy=0] {Number} The y coordinate of the upper-left corner in the source object. If you omit the 6th and subsequent parameters, the value is treated as dy.<br>
-	* ソースオブジェクトの左上y座標です。第6引数以降を省略した場合、この引数はdyとして動作します。
+	* ã‚½ãƒ¼ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å·¦ä¸Šyåº§æ¨™ã§ã™ã€‚ç¬¬6å¼•æ•°ä»¥é™ã‚’çœç•¥ã—ãŸå ´åˆã€ã“ã®å¼•æ•°ã¯dyã¨ã—ã¦å‹•ä½œã—ã¾ã™ã€‚
 	* @param [sw] {Number} The width of the source object. If you omit the 6th and subsequent parameters, the value is treated as dw.<br>
-	* ソースオブジェクトの幅です。第6引数以降を省略した場合、この引数はdwとして動作します。
+	* ã‚½ãƒ¼ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å¹…ã§ã™ã€‚ç¬¬6å¼•æ•°ä»¥é™ã‚’çœç•¥ã—ãŸå ´åˆã€ã“ã®å¼•æ•°ã¯dwã¨ã—ã¦å‹•ä½œã—ã¾ã™ã€‚
 	* @param [sh] {Number} The height of the source object. If you omit the 6th and subsequent parameters, the value is treated as dh.<br>
-	* ソースオブジェクトの高さです。第6引数以降を省略した場合、この引数はdhとして動作します。
+	* ã‚½ãƒ¼ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®é«˜ã•ã§ã™ã€‚ç¬¬6å¼•æ•°ä»¥é™ã‚’çœç•¥ã—ãŸå ´åˆã€ã“ã®å¼•æ•°ã¯dhã¨ã—ã¦å‹•ä½œã—ã¾ã™ã€‚
 	* @param [dx] {Number} The x coordinate within the destination image that corresponds to the left side of the source object.<br>
-	* 描画先の左上x座標です。
+	* æç”»å…ˆã®å·¦ä¸Šxåº§æ¨™ã§ã™ã€‚
 	* @param [dy] {Number} The y coordinate within the destination image that corresponds to the top side of the source object.<br>
-	* 描画先の左上y座標です。
+	* æç”»å…ˆã®å·¦ä¸Šyåº§æ¨™ã§ã™ã€‚
 	* @param [dw] {Number} The width of the object when drawn.<br>
-	* 描画時の幅です。
+	* æç”»æ™‚ã®å¹…ã§ã™ã€‚
 	* @param [dh] {Number} The height of the object when drawn.<br>
-	* 描画時の高さです。
+	* æç”»æ™‚ã®é«˜ã•ã§ã™ã€‚
 	**/
 	p.drawImage = function(source, sx, sy, sw, sh, dx, dy, dw, dh) {
 		if (source instanceof BitmapData || source instanceof createjs.Stage) {
@@ -605,10 +605,10 @@ _bmd01.draw(_source, matrix, colorTransform, compositeOperation, clipRect, smoot
 
 	/**
 	* Changes the size of the bitmapdata. A rectangle of the parameter correspond to the return value of the Filter.getBounds(). For example, if you want to expand by 8px on all sides (top, bottm, left, right), set the value to new createjs.Rectangle(-8, -8, 16, 16).<br>
-	* BitmapDataのサイズを変更します。引数のRectangleは、Filter.getBounds()の戻り値に合わせています。例として、上下左右に8pxずつ拡げたい場合は、new createjs.Rectangle(-8, -8, 16, 16)を指定します。
+	* BitmapDataã®ã‚µã‚¤ã‚ºã‚’å¤‰æ›´ã—ã¾ã™ã€‚å¼•æ•°ã®Rectangleã¯ã€Filter.getBounds()ã®æˆ»ã‚Šå€¤ã«åˆã‚ã›ã¦ã„ã¾ã™ã€‚ä¾‹ã¨ã—ã¦ã€ä¸Šä¸‹å·¦å³ã«8pxãšã¤æ‹¡ã’ãŸã„å ´åˆã¯ã€new createjs.Rectangle(-8, -8, 16, 16)ã‚’æŒ‡å®šã—ã¾ã™ã€‚
 	* @method expand
 	* @param rect {Rectangle} A rectangle object to change the size of the bitmapdata. In case of using a Filter, pass the return value of the Filter.getBounds().<br>
-	* BitmapDataのサイズ変更に使用するRectangleです。Filterを使用する場合は、Filter.getBounds()の戻り値をそのまま渡します。
+	* BitmapDataã®ã‚µã‚¤ã‚ºå¤‰æ›´ã«ä½¿ç”¨ã™ã‚‹Rectangleã§ã™ã€‚Filterã‚’ä½¿ç”¨ã™ã‚‹å ´åˆã¯ã€Filter.getBounds()ã®æˆ»ã‚Šå€¤ã‚’ãã®ã¾ã¾æ¸¡ã—ã¾ã™ã€‚
 	* @example
 	* <pre><code>_bmd01 = new createjs.BitmapData(_image01);
 var source = _bmd01;
@@ -635,12 +635,12 @@ _bmd01.applyFilter(source, sourceRect, destPoint, filter);</code></pre>
 
 	/**
 	* Fills a rectangular area with a specified color value.<br>
-	* BitmapDataの特定領域を指定されたカラー値で塗りつぶします。
+	* BitmapDataã®ç‰¹å®šé ˜åŸŸã‚’æŒ‡å®šã•ã‚ŒãŸã‚«ãƒ©ãƒ¼å€¤ã§å¡—ã‚Šã¤ã¶ã—ã¾ã™ã€‚
 	* @method fillRect
 	* @param rect {Rectangle} A rectangle object that defines the area to be filled.<br>
-	* 塗りつぶす範囲を示すRectangleです。
+	* å¡—ã‚Šã¤ã¶ã™ç¯„å›²ã‚’ç¤ºã™Rectangleã§ã™ã€‚
 	* @param color {String | uint} A color value that fills the area. You can use a CSS compatible color value (ex. "#FF0000", "rgba(255,0,0,0.5)") or a 32-bit ARGB color value(ex. 0x80FF0000). In case of using a hexadecimal format, if you set the 0 at the alpha channel, the value is treated as 0xRRGGBB (ex. 0x00FF0000 is treated as 0xFF0000). If you want to set the pixels to transparence, you can use the clearRect().<br>
-	* 塗りつぶしのカラー値です。CSS文字列と0xAARRGGBB形式の16進数値が使えます。16進数値で指定する際にアルファ値として0を指定した場合は、0xRRGGBBとして処理を行います。例として、0x00FF0000を指定した場合は、0xFF0000として処理されます。ピクセルを透明にしたい場合はclearRect()を使用して下さい。
+	* å¡—ã‚Šã¤ã¶ã—ã®ã‚«ãƒ©ãƒ¼å€¤ã§ã™ã€‚CSSæ–‡å­—åˆ—ã¨0xAARRGGBBå½¢å¼ã®16é€²æ•°å€¤ãŒä½¿ãˆã¾ã™ã€‚16é€²æ•°å€¤ã§æŒ‡å®šã™ã‚‹éš›ã«ã‚¢ãƒ«ãƒ•ã‚¡å€¤ã¨ã—ã¦0ã‚’æŒ‡å®šã—ãŸå ´åˆã¯ã€0xRRGGBBã¨ã—ã¦å‡¦ç†ã‚’è¡Œã„ã¾ã™ã€‚ä¾‹ã¨ã—ã¦ã€0x00FF0000ã‚’æŒ‡å®šã—ãŸå ´åˆã¯ã€0xFF0000ã¨ã—ã¦å‡¦ç†ã•ã‚Œã¾ã™ã€‚ãƒ”ã‚¯ã‚»ãƒ«ã‚’é€æ˜Žã«ã—ãŸã„å ´åˆã¯clearRect()ã‚’ä½¿ç”¨ã—ã¦ä¸‹ã•ã„ã€‚
 	* @example
 	* <pre><code>_bmd01 = new createjs.BitmapData(null, 200, 200);
 _bmd02 = _bmd01.clone();
@@ -672,14 +672,14 @@ _bmd02.fillRect(rect, color02);</code></pre>
 
 	/**
 	* Fills the certain color from the specified point. It's similar to the paint bucket tool in various paint programs.<br>
-	* 指定した座標を始点として、上下左右に連続した色をバケツツールのように塗りつぶします。
+	* æŒ‡å®šã—ãŸåº§æ¨™ã‚’å§‹ç‚¹ã¨ã—ã¦ã€ä¸Šä¸‹å·¦å³ã«é€£ç¶šã—ãŸè‰²ã‚’ãƒã‚±ãƒ„ãƒ„ãƒ¼ãƒ«ã®ã‚ˆã†ã«å¡—ã‚Šã¤ã¶ã—ã¾ã™ã€‚
 	* @method floodFill
 	* @param x {uint} The x coordinate of starting point to fill.<br>
-	* 塗りつぶしの始点となるx座標です。
+	* å¡—ã‚Šã¤ã¶ã—ã®å§‹ç‚¹ã¨ãªã‚‹xåº§æ¨™ã§ã™ã€‚
 	* @param y {uint} The y coordinate of starting point to fill<br>
-	* 塗りつぶしの始点となるy座標です。
+	* å¡—ã‚Šã¤ã¶ã—ã®å§‹ç‚¹ã¨ãªã‚‹yåº§æ¨™ã§ã™ã€‚
 	* @param color {uint} A color value to use as fill. You can use only a 32-bit ARGB color value (ex. 0xAARRGGBB).<br>
-	* 塗りつぶしのカラー値です。0xAARRGGBB形式の16進数値のみ使用できます。
+	* å¡—ã‚Šã¤ã¶ã—ã®ã‚«ãƒ©ãƒ¼å€¤ã§ã™ã€‚0xAARRGGBBå½¢å¼ã®16é€²æ•°å€¤ã®ã¿ä½¿ç”¨ã§ãã¾ã™ã€‚
 	* @example
 	* <pre><code>function clickHandler(evt) {
   _bmd01.floodFill(evt.stageX, evt.stageY, 0xFFCCCCCC);
@@ -754,16 +754,16 @@ _bmd02.fillRect(rect, color02);</code></pre>
 
 	/**
 	* If you set the findColor parameter to true, the method returns a rectangle object that is enclosed area with the specified color. If you set the findColor parameter to false, the method returns a rectangle object that is enclosed area with the not specified color.<br>
-	* 引数findColorにtrueを指定した場合は、指定された色のピクセルを囲むRectangleを返します。findColorにfalseを指定した場合は、指定された色ではないピクセルを囲むRectangleを返します。
+	* å¼•æ•°findColorã«trueã‚’æŒ‡å®šã—ãŸå ´åˆã¯ã€æŒ‡å®šã•ã‚ŒãŸè‰²ã®ãƒ”ã‚¯ã‚»ãƒ«ã‚’å›²ã‚€Rectangleã‚’è¿”ã—ã¾ã™ã€‚findColorã«falseã‚’æŒ‡å®šã—ãŸå ´åˆã¯ã€æŒ‡å®šã•ã‚ŒãŸè‰²ã§ã¯ãªã„ãƒ”ã‚¯ã‚»ãƒ«ã‚’å›²ã‚€Rectangleã‚’è¿”ã—ã¾ã™ã€‚
 	* @method getColorBoundsRect
 	* @param mask {uint} A hexadicimal value to mask the color value of pixels. The color value is combined with this value, by using the & (bitwise AND) operator.<br>
-	* ピクセルのカラー値をマスクする16進数値を指定します。ピクセルのカラー値とこの16進数値は、AND論理演算子でつなげられます。
+	* ãƒ”ã‚¯ã‚»ãƒ«ã®ã‚«ãƒ©ãƒ¼å€¤ã‚’ãƒžã‚¹ã‚¯ã™ã‚‹16é€²æ•°å€¤ã‚’æŒ‡å®šã—ã¾ã™ã€‚ãƒ”ã‚¯ã‚»ãƒ«ã®ã‚«ãƒ©ãƒ¼å€¤ã¨ã“ã®16é€²æ•°å€¤ã¯ã€ANDè«–ç†æ¼”ç®—å­ã§ã¤ãªã’ã‚‰ã‚Œã¾ã™ã€‚
 	* @param color {uint} A hexadicimal value to be used as the target color. You can use only a 32-bit ARGB color value (ex. 0xAARRGGBB).<br>
-	* 対象とするカラー値を指定します。0xAARRGGBB形式の16進数値のみ使用できます。
+	* å¯¾è±¡ã¨ã™ã‚‹ã‚«ãƒ©ãƒ¼å€¤ã‚’æŒ‡å®šã—ã¾ã™ã€‚0xAARRGGBBå½¢å¼ã®16é€²æ•°å€¤ã®ã¿ä½¿ç”¨ã§ãã¾ã™ã€‚
 	* @param [findColor=false] {Boolean} If you set the value to true, the method returns a rectangle that is enclosed area with the specified color. If you set the value to false, the method returns a rectangle that is enclosed area with the not specified color.<br>
-	* trueを指定した場合、指定された色のピクセルを囲むRectangleを返します。falseを指定した場合、指定された色ではないピクセルを囲むRectangleを返します。
+	* trueã‚’æŒ‡å®šã—ãŸå ´åˆã€æŒ‡å®šã•ã‚ŒãŸè‰²ã®ãƒ”ã‚¯ã‚»ãƒ«ã‚’å›²ã‚€Rectangleã‚’è¿”ã—ã¾ã™ã€‚falseã‚’æŒ‡å®šã—ãŸå ´åˆã€æŒ‡å®šã•ã‚ŒãŸè‰²ã§ã¯ãªã„ãƒ”ã‚¯ã‚»ãƒ«ã‚’å›²ã‚€Rectangleã‚’è¿”ã—ã¾ã™ã€‚
 	* @return {Rectangle} A rectangle object that is enclosed all pixels that matched the conditions. If no pixel match the conditions, the method returns a Rectangle(0, 0, 0, 0).<br>
-	* 条件に合致したすべてのピクセルを囲むRectangleです。条件に合致するピクセルがない場合は、Rectangle(0, 0, 0, 0)を返します。
+	* æ¡ä»¶ã«åˆè‡´ã—ãŸã™ã¹ã¦ã®ãƒ”ã‚¯ã‚»ãƒ«ã‚’å›²ã‚€Rectangleã§ã™ã€‚æ¡ä»¶ã«åˆè‡´ã™ã‚‹ãƒ”ã‚¯ã‚»ãƒ«ãŒãªã„å ´åˆã¯ã€Rectangle(0, 0, 0, 0)ã‚’è¿”ã—ã¾ã™ã€‚
 	**/
 	p.getColorBoundsRect = function(mask, color, findColor) {
 		if (findColor === undefined) findColor = true;
@@ -802,14 +802,14 @@ _bmd02.fillRect(rect, color02);</code></pre>
 
 	/**
 	* Returns a number that represents a RGB color value from the specified point.<br>
-	* 指定された座標のRGBカラー値を数値で返します。
+	* æŒ‡å®šã•ã‚ŒãŸåº§æ¨™ã®RGBã‚«ãƒ©ãƒ¼å€¤ã‚’æ•°å€¤ã§è¿”ã—ã¾ã™ã€‚
 	* @method getPixel
 	* @param x {uint} The x coordinate to get the color value.<br>
-	* カラー値を取得するx座標です。
+	* ã‚«ãƒ©ãƒ¼å€¤ã‚’å–å¾—ã™ã‚‹xåº§æ¨™ã§ã™ã€‚
 	* @param y {uint} The y coordinate to get the color value.<br>
-	* カラー値を取得するy座標です。
+	* ã‚«ãƒ©ãƒ¼å€¤ã‚’å–å¾—ã™ã‚‹yåº§æ¨™ã§ã™ã€‚
 	* @return {uint} A number that represents a RGB color value.<br>
-	* RGBカラー値を表す数値です。
+	* RGBã‚«ãƒ©ãƒ¼å€¤ã‚’è¡¨ã™æ•°å€¤ã§ã™ã€‚
 	* @example
 	* <pre><code>var color = forcemap.getPixel(x, y);</code></pre>
 	**/
@@ -836,14 +836,14 @@ _bmd02.fillRect(rect, color02);</code></pre>
 
 	/**
 	* Returns a number that represents a ARGB color value from the specified point.<br>
-	* 指定された座標のARGBカラー値を数値で返します。
+	* æŒ‡å®šã•ã‚ŒãŸåº§æ¨™ã®ARGBã‚«ãƒ©ãƒ¼å€¤ã‚’æ•°å€¤ã§è¿”ã—ã¾ã™ã€‚
 	* @method getPixel32
 	* @param x {uint} The x coordinate to get the color value.<br>
-	* カラー値を取得するx座標です。
+	* ã‚«ãƒ©ãƒ¼å€¤ã‚’å–å¾—ã™ã‚‹xåº§æ¨™ã§ã™ã€‚
 	* @param y {uint} The y coordinate to get the color value.<br>
-	* カラー値を取得するy座標です。
+	* ã‚«ãƒ©ãƒ¼å€¤ã‚’å–å¾—ã™ã‚‹yåº§æ¨™ã§ã™ã€‚
 	* @return {uint} A number that represents a ARGB color value.<br>
-	* ARGBカラー値を表す数値です。
+	* ARGBã‚«ãƒ©ãƒ¼å€¤ã‚’è¡¨ã™æ•°å€¤ã§ã™ã€‚
 	**/
 	p.getPixel32 = function(x, y) {
 		if (x < 0 || y < 0) {
@@ -869,12 +869,12 @@ _bmd02.fillRect(rect, color02);</code></pre>
 
 	/**
 	* Returns the pixel data of the specified area as a Uint8ClampedArray (CanvasPixelArray in the case of the old browser). The pixel data of the return value is stored in the order of R, G, B, A.<br>
-	* 引数で指定された領域のピクセルデータをUint8ClampedArray（旧ブラウザではCanvasPixelArray）で返します。戻り値のピクセルデータは、R, G, B, Aの並びになっています。
+	* å¼•æ•°ã§æŒ‡å®šã•ã‚ŒãŸé ˜åŸŸã®ãƒ”ã‚¯ã‚»ãƒ«ãƒ‡ãƒ¼ã‚¿ã‚’Uint8ClampedArrayï¼ˆæ—§ãƒ–ãƒ©ã‚¦ã‚¶ã§ã¯CanvasPixelArrayï¼‰ã§è¿”ã—ã¾ã™ã€‚æˆ»ã‚Šå€¤ã®ãƒ”ã‚¯ã‚»ãƒ«ãƒ‡ãƒ¼ã‚¿ã¯ã€R, G, B, Aã®ä¸¦ã³ã«ãªã£ã¦ã„ã¾ã™ã€‚
 	* @method getPixels
 	* @param rect {Rectangle} A rectangle object that defines the area to get the pixel data.<br>
-	* ピクセルデータを取得する範囲を示すRectangleです。
+	* ãƒ”ã‚¯ã‚»ãƒ«ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹ç¯„å›²ã‚’ç¤ºã™Rectangleã§ã™ã€‚
 	* @return {Uint8ClampedArray} A Uint8ClampedArray (imageData.data) of the specified area.<br>
-	* 指定された範囲のimageData.dataプロパティを返します。
+	* æŒ‡å®šã•ã‚ŒãŸç¯„å›²ã®imageData.dataãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’è¿”ã—ã¾ã™ã€‚
 	* @example
 	* <pre><code>_bmd01 = new createjs.BitmapData(_image01);
 _bmd02 = new createjs.BitmapData(_image02);
@@ -901,12 +901,12 @@ _bmd01.setPixels(rect, data01);</code></pre>
 
 	/**
 	* Returns a two-dimentsional array that represents the histogram of the bitmapdata. The array of the return value contains four arrays with the format [[R], [G], [B], [A]]. Each array contains 256 (from 0 to 255) values that represents the population count of an individual color value.<br>
-	* BitmapDataのヒストグラムを2次元配列で返します。戻り値の配列は、[[R], [G], [B], [A]]の形式で4つの配列を格納しています。各カラー値の配列は、0～255のindexを持っており、そこにカラー値のポピュレーションカウントを格納しています。
+	* BitmapDataã®ãƒ’ã‚¹ãƒˆã‚°ãƒ©ãƒ ã‚’2æ¬¡å…ƒé…åˆ—ã§è¿”ã—ã¾ã™ã€‚æˆ»ã‚Šå€¤ã®é…åˆ—ã¯ã€[[R], [G], [B], [A]]ã®å½¢å¼ã§4ã¤ã®é…åˆ—ã‚’æ ¼ç´ã—ã¦ã„ã¾ã™ã€‚å„ã‚«ãƒ©ãƒ¼å€¤ã®é…åˆ—ã¯ã€0ï½ž255ã®indexã‚’æŒã£ã¦ãŠã‚Šã€ãã“ã«ã‚«ãƒ©ãƒ¼å€¤ã®ãƒãƒ”ãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã‚«ã‚¦ãƒ³ãƒˆã‚’æ ¼ç´ã—ã¦ã„ã¾ã™ã€‚
 	* @method histogram
 	* @param hRect {Rectangle} A rectangle object that defines the area to get the histogram.<br>
-	* ヒストグラムを取得する範囲を示すRectangleです。
+	* ãƒ’ã‚¹ãƒˆã‚°ãƒ©ãƒ ã‚’å–å¾—ã™ã‚‹ç¯„å›²ã‚’ç¤ºã™Rectangleã§ã™ã€‚
 	* @return {Array} A two-dimensional array that represents the histogram of the bitmapdata.<br>
-	* BitmapDataのヒストグラムを表す2次元配列です。
+	* BitmapDataã®ãƒ’ã‚¹ãƒˆã‚°ãƒ©ãƒ ã‚’è¡¨ã™2æ¬¡å…ƒé…åˆ—ã§ã™ã€‚
 	**/
 	p.histogram = function(hRect) {
 		var h = [[], [], [], []];
@@ -929,20 +929,20 @@ _bmd01.setPixels(rect, data01);</code></pre>
 
 	/**
 	* Performs pixel-level hit detection including alpha channel. If the 3rd parameter (secondObject) is a Point or a rectangle, The method doesn't need the 4th and subsequent parameters.<br>
-	* アルファチャンネルを含めたピクセルレベルの衝突判定を行います。対象オブジェクトがPoint, Rectangleの場合には第4引数以降は必要ありません。
+	* ã‚¢ãƒ«ãƒ•ã‚¡ãƒãƒ£ãƒ³ãƒãƒ«ã‚’å«ã‚ãŸãƒ”ã‚¯ã‚»ãƒ«ãƒ¬ãƒ™ãƒ«ã®è¡çªåˆ¤å®šã‚’è¡Œã„ã¾ã™ã€‚å¯¾è±¡ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒPoint, Rectangleã®å ´åˆã«ã¯ç¬¬4å¼•æ•°ä»¥é™ã¯å¿…è¦ã‚ã‚Šã¾ã›ã‚“ã€‚
 	* @method hitTest
 	* @param firstPoint {Point} The point that represents the upper-left corner of the current bitmapdata in an arbitrary coordinate space.<br>
-	* 任意の座標空間における現在のBitmapDataの座標を示すPointです。
+	* ä»»æ„ã®åº§æ¨™ç©ºé–“ã«ãŠã‘ã‚‹ç¾åœ¨ã®BitmapDataã®åº§æ¨™ã‚’ç¤ºã™Pointã§ã™ã€‚
 	* @param firstAlphaThreshold {uint} The threshold value of the alpha channel that is considered opaque within the current bitmapdata.<br>
-	* 現在のBitmapDataで不透明とするアルファチャンネルのしきい値です。
+	* ç¾åœ¨ã®BitmapDataã§ä¸é€æ˜Žã¨ã™ã‚‹ã‚¢ãƒ«ãƒ•ã‚¡ãƒãƒ£ãƒ³ãƒãƒ«ã®ã—ãã„å€¤ã§ã™ã€‚
 	* @param secondObject {Point | Rectangle | BitmapData | DisplayObject | Stage | HTMLImageElement | HTMLCanvasElement | HTMLVideoElement} An object that is the target of hit detection.<br>
-	* 衝突判定の対象となるオブジェクトです。
+	* è¡çªåˆ¤å®šã®å¯¾è±¡ã¨ãªã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã§ã™ã€‚
 	* @param [secondObjectPoint=null] {Point} The point that represents the upper-left corner of the secondObject.<br>
-	* secondObjectの座標を示すPointです。
+	* secondObjectã®åº§æ¨™ã‚’ç¤ºã™Pointã§ã™ã€‚
 	* @param [secondAlphaThreshold=1] {uint} The threshold value of the alpha channel that is considered opaque within the secondObject.<br>
-	* secondObjectで不透明とするアルファチャンネルのしきい値です。
+	* secondObjectã§ä¸é€æ˜Žã¨ã™ã‚‹ã‚¢ãƒ«ãƒ•ã‚¡ãƒãƒ£ãƒ³ãƒãƒ«ã®ã—ãã„å€¤ã§ã™ã€‚
 	* @return {Boolean} If a hit occurs, the return value is true, otherwise false.<br>
-	* 衝突している場合はtrue、していない場合はfalseを返します。
+	* è¡çªã—ã¦ã„ã‚‹å ´åˆã¯trueã€ã—ã¦ã„ãªã„å ´åˆã¯falseã‚’è¿”ã—ã¾ã™ã€‚
 	* @example
 	* <pre><code>var firstPoint = new createjs.Point(_bitmap01.x, _bitmap01.y);
 var firstAlphaThreshold = 0xFF;
@@ -1052,22 +1052,22 @@ if (_bmd01.hitTest(firstPoint, firstAlphaThreshold, secondObject, secondObjectPo
 
 	/**
 	* Performs per-channel blending from a source object to the current bitmapdata.<br>
-	* 現在のBitmapDataとソースオブジェクトをチャンネルごとにブレンドします。
+	* ç¾åœ¨ã®BitmapDataã¨ã‚½ãƒ¼ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ãƒãƒ£ãƒ³ãƒãƒ«ã”ã¨ã«ãƒ–ãƒ¬ãƒ³ãƒ‰ã—ã¾ã™ã€‚
 	* @method merge
 	* @param source {BitmapData | DisplayObject | Stage | HTMLImageElement | HTMLCanvasElement | HTMLVideoElement} An object to use as a source.<br>
-	* ソースとなるオブジェクトを指定します。
+	* ã‚½ãƒ¼ã‚¹ã¨ãªã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æŒ‡å®šã—ã¾ã™ã€‚
 	* @param sourceRect {Rectangle} A rectangle object that defines the area of the source.<br>
-	* ソースオブジェクトの範囲を示すRectangleです。
+	* ã‚½ãƒ¼ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ç¯„å›²ã‚’ç¤ºã™Rectangleã§ã™ã€‚
 	* @param destPoint {Point} The destination Point that represents the upper-left corner of the destination bitmapdata.<br>
-	* マージ先の左上座標を示すPointです。
+	* ãƒžãƒ¼ã‚¸å…ˆã®å·¦ä¸Šåº§æ¨™ã‚’ç¤ºã™Pointã§ã™ã€‚
 	* @param redMultiplier {uint} A uint value by which to multiply the red channel value.<br>
-	* 赤チャンネル値に乗算する数値です。
+	* èµ¤ãƒãƒ£ãƒ³ãƒãƒ«å€¤ã«ä¹—ç®—ã™ã‚‹æ•°å€¤ã§ã™ã€‚
 	* @param greenMultiplier {uint} A uint value by which to multiply the green channel value.<br>
-	* 緑チャンネル値に乗算する数値です。
+	* ç·‘ãƒãƒ£ãƒ³ãƒãƒ«å€¤ã«ä¹—ç®—ã™ã‚‹æ•°å€¤ã§ã™ã€‚
 	* @param blueMultiplier {uint} A uint value by which to multiply the blue channel value.<br>
-	* 青チャンネル値に乗算する数値です。
+	* é’ãƒãƒ£ãƒ³ãƒãƒ«å€¤ã«ä¹—ç®—ã™ã‚‹æ•°å€¤ã§ã™ã€‚
 	* @param alphaMultiplier {uint} A uint value by which to multiply the alpha channel value.<br>
-	* アルファチャンネル値に乗算する数値です。
+	* ã‚¢ãƒ«ãƒ•ã‚¡ãƒãƒ£ãƒ³ãƒãƒ«å€¤ã«ä¹—ç®—ã™ã‚‹æ•°å€¤ã§ã™ã€‚
 	* @example
 	* <pre><code>_bmd01 = new createjs.BitmapData(_image01);
 _bmd02 = _bmd01.clone();
@@ -1110,16 +1110,16 @@ _bmd02.merge(source, sourceRect, destPoint, redMultiplier, greenMultiplier, blue
 
 	/**
 	* Generates a random noise.<br>
-	* ランダムノイズを生成します。
+	* ãƒ©ãƒ³ãƒ€ãƒ ãƒŽã‚¤ã‚ºã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	* @method noise
 	* @param [low=0] {uint} The lowest value to generate for each channel.<br>
-	* チャンネルごとに生成する最小値です。
+	* ãƒãƒ£ãƒ³ãƒãƒ«ã”ã¨ã«ç”Ÿæˆã™ã‚‹æœ€å°å€¤ã§ã™ã€‚
 	* @param [high=255] {uint} The highest value to generate for each channel.<br>
-	* チャンネルごとに生成する最大値です。
+	* ãƒãƒ£ãƒ³ãƒãƒ«ã”ã¨ã«ç”Ÿæˆã™ã‚‹æœ€å¤§å€¤ã§ã™ã€‚
 	* @param [channelOptions=7] {uint} The channel of the target. You can use the constant of the BitmapDataChannel class and use the logical OR operator (|) to combine channel values.<br>
-	* 対象とするチャンネルを指定します。BitmapDataChannelクラスの定数が使え、OR論理演算子で複数のチャンネルを組み合わせることができます。
+	* å¯¾è±¡ã¨ã™ã‚‹ãƒãƒ£ãƒ³ãƒãƒ«ã‚’æŒ‡å®šã—ã¾ã™ã€‚BitmapDataChannelã‚¯ãƒ©ã‚¹ã®å®šæ•°ãŒä½¿ãˆã€ORè«–ç†æ¼”ç®—å­ã§è¤‡æ•°ã®ãƒãƒ£ãƒ³ãƒãƒ«ã‚’çµ„ã¿åˆã‚ã›ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚
 	* @param [grayScale=false] {Boolean} A Boolean value that determines whether or not to generates the grayscale noise. If you set the value to true, all channels set to the same value except the alpha channel.<br>
-	* ノイズをグレイスケールにするかをBool値を指定します。trueにした場合、アルファチャンネルを除いたすべてのチャンネルが同じ値となります。
+	* ãƒŽã‚¤ã‚ºã‚’ã‚°ãƒ¬ã‚¤ã‚¹ã‚±ãƒ¼ãƒ«ã«ã™ã‚‹ã‹ã‚’Boolå€¤ã‚’æŒ‡å®šã—ã¾ã™ã€‚trueã«ã—ãŸå ´åˆã€ã‚¢ãƒ«ãƒ•ã‚¡ãƒãƒ£ãƒ³ãƒãƒ«ã‚’é™¤ã„ãŸã™ã¹ã¦ã®ãƒãƒ£ãƒ³ãƒãƒ«ãŒåŒã˜å€¤ã¨ãªã‚Šã¾ã™ã€‚
 	* @example
 	* <pre><code>_bmd01 = new createjs.BitmapData(null, 200, 200);
 var low = 128;
@@ -1160,21 +1160,21 @@ _bmd01.noise(low, high, channelOptions, grayScale);</code></pre>
 
 	/**
 	* Remaps the color channel values, by using four arrays of the color palette data. If a channel is specified null as the color palette data, be copied from the source object to the destination bitmapdata. Each arrays of the color palette data should contains 256 values.<br>
-	* カラーパレットデータ配列を使用して、BitmapDataのカラー値をマッピングします。パレットデータ配列でnullを指定したチャンネルでは、ソースオブジェクトのチャンネルが使用されます。各チャンネルのパレットデータ配列には、256個の値が含まれている必要があります。
+	* ã‚«ãƒ©ãƒ¼ãƒ‘ãƒ¬ãƒƒãƒˆãƒ‡ãƒ¼ã‚¿é…åˆ—ã‚’ä½¿ç”¨ã—ã¦ã€BitmapDataã®ã‚«ãƒ©ãƒ¼å€¤ã‚’ãƒžãƒƒãƒ”ãƒ³ã‚°ã—ã¾ã™ã€‚ãƒ‘ãƒ¬ãƒƒãƒˆãƒ‡ãƒ¼ã‚¿é…åˆ—ã§nullã‚’æŒ‡å®šã—ãŸãƒãƒ£ãƒ³ãƒãƒ«ã§ã¯ã€ã‚½ãƒ¼ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒãƒ£ãƒ³ãƒãƒ«ãŒä½¿ç”¨ã•ã‚Œã¾ã™ã€‚å„ãƒãƒ£ãƒ³ãƒãƒ«ã®ãƒ‘ãƒ¬ãƒƒãƒˆãƒ‡ãƒ¼ã‚¿é…åˆ—ã«ã¯ã€256å€‹ã®å€¤ãŒå«ã¾ã‚Œã¦ã„ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚
 	* @method paletteMap
-	* @param source {BitmapData | DisplayObject | Stage | HTMLImageElement | HTMLCanvasElement | HTMLVideoElement} ソースとなるオブジェクトを指定します。
+	* @param source {BitmapData | DisplayObject | Stage | HTMLImageElement | HTMLCanvasElement | HTMLVideoElement} ã‚½ãƒ¼ã‚¹ã¨ãªã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æŒ‡å®šã—ã¾ã™ã€‚
 	* @param sourceRect {Rectangle} A rectangle object that defines the area of the source.<br>
-	* ソースオブジェクトの範囲を示すRectangleです。
+	* ã‚½ãƒ¼ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ç¯„å›²ã‚’ç¤ºã™Rectangleã§ã™ã€‚
 	* @param destPoint {Point} The destination Point that represents the upper-left corner of the destination bitmapdata.<br>
-	* マッピング先の左上座標を示すPointです。
+	* ãƒžãƒƒãƒ”ãƒ³ã‚°å…ˆã®å·¦ä¸Šåº§æ¨™ã‚’ç¤ºã™Pointã§ã™ã€‚
 	* @param [redArray=null] {Array} A array of the palette data to be used remapping the red channel.<br>
-	* 赤チャンネルのマッピングに使用するパレットデータ配列です。
+	* èµ¤ãƒãƒ£ãƒ³ãƒãƒ«ã®ãƒžãƒƒãƒ”ãƒ³ã‚°ã«ä½¿ç”¨ã™ã‚‹ãƒ‘ãƒ¬ãƒƒãƒˆãƒ‡ãƒ¼ã‚¿é…åˆ—ã§ã™ã€‚
 	* @param [greenArray=null] {Array} A array of the palette data to be used remapping the green channel.<br>
-	* 緑チャンネルのマッピングに使用するパレットデータ配列です。
+	* ç·‘ãƒãƒ£ãƒ³ãƒãƒ«ã®ãƒžãƒƒãƒ”ãƒ³ã‚°ã«ä½¿ç”¨ã™ã‚‹ãƒ‘ãƒ¬ãƒƒãƒˆãƒ‡ãƒ¼ã‚¿é…åˆ—ã§ã™ã€‚
 	* @param [blueArray=null] {Array} A array of the palette data to be used remapping the blue channel.<br>
-	* 青チャンネルのマッピングに使用するパレットデータ配列です。
+	* é’ãƒãƒ£ãƒ³ãƒãƒ«ã®ãƒžãƒƒãƒ”ãƒ³ã‚°ã«ä½¿ç”¨ã™ã‚‹ãƒ‘ãƒ¬ãƒƒãƒˆãƒ‡ãƒ¼ã‚¿é…åˆ—ã§ã™ã€‚
 	* @param [alphaArray=null] {Array} A array of the palette data to be used remapping the alpha channel.<br>
-	* アルファチャンネルのマッピングに使用するパレットデータ配列です。
+	* ã‚¢ãƒ«ãƒ•ã‚¡ãƒãƒ£ãƒ³ãƒãƒ«ã®ãƒžãƒƒãƒ”ãƒ³ã‚°ã«ä½¿ç”¨ã™ã‚‹ãƒ‘ãƒ¬ãƒƒãƒˆãƒ‡ãƒ¼ã‚¿é…åˆ—ã§ã™ã€‚
 	* @example
 	* <pre><code>_bmd01 = new createjs.BitmapData(_image01);
 var source = _bmd01;
@@ -1221,28 +1221,28 @@ _bmd01.paletteMap(source, sourceRect, destPoint, redArray, greenArray, blueArray
 
 	/**
 	* Generates a Perlin noise.<br>
-	* PerlinNoiseを生成します。
+	* PerlinNoiseã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	* @method perlinNoise
 	* @param baseX {Number} Frequency to use in the x direction.<br>
-	* x方向で使用する周波数です。
+	* xæ–¹å‘ã§ä½¿ç”¨ã™ã‚‹å‘¨æ³¢æ•°ã§ã™ã€‚
 	* @param baseY {Number} Frequency to use in the y direction.<br>
-	* y方向で使用する周波数です。
+	* yæ–¹å‘ã§ä½¿ç”¨ã™ã‚‹å‘¨æ³¢æ•°ã§ã™ã€‚
 	* @param numOctaves {uint} A Number of octaves to combine to create the noise. Larger number of octaves create images with greater detail, but also require more processing time.<br>
-	* PerlinNoiseを作成するために組み合わせるオクターブの数です。オクターブ数を大きくすると、よりきめ細かいノイズを作成できますが、その分、処理に時間がかかります。
+	* PerlinNoiseã‚’ä½œæˆã™ã‚‹ãŸã‚ã«çµ„ã¿åˆã‚ã›ã‚‹ã‚ªã‚¯ã‚¿ãƒ¼ãƒ–ã®æ•°ã§ã™ã€‚ã‚ªã‚¯ã‚¿ãƒ¼ãƒ–æ•°ã‚’å¤§ããã™ã‚‹ã¨ã€ã‚ˆã‚Šãã‚ç´°ã‹ã„ãƒŽã‚¤ã‚ºã‚’ä½œæˆã§ãã¾ã™ãŒã€ãã®åˆ†ã€å‡¦ç†ã«æ™‚é–“ãŒã‹ã‹ã‚Šã¾ã™ã€‚
 	* @param randomSeed {int} The random seed number to use to create the noise. Same random seed creates the same results each time.<br>
-	* ノイズの生成に使用するランダムシード（乱数の種）を指定します。同じランダムシードからは、毎回同じ結果が得られます。
+	* ãƒŽã‚¤ã‚ºã®ç”Ÿæˆã«ä½¿ç”¨ã™ã‚‹ãƒ©ãƒ³ãƒ€ãƒ ã‚·ãƒ¼ãƒ‰ï¼ˆä¹±æ•°ã®ç¨®ï¼‰ã‚’æŒ‡å®šã—ã¾ã™ã€‚åŒã˜ãƒ©ãƒ³ãƒ€ãƒ ã‚·ãƒ¼ãƒ‰ã‹ã‚‰ã¯ã€æ¯Žå›žåŒã˜çµæžœãŒå¾—ã‚‰ã‚Œã¾ã™ã€‚
 	* @param [stitch=false] {Boolean} If you set the value to true, the method attempts to smooth the transition edges of the image to create seamless textures for tiling as a bitmap fill. But also require more processing time.<br>
-	* trueを指定した場合、タイリングに適したシームレスなPerlinNoiseを生成しますが、その分、処理に時間がかかります。
+	* trueã‚’æŒ‡å®šã—ãŸå ´åˆã€ã‚¿ã‚¤ãƒªãƒ³ã‚°ã«é©ã—ãŸã‚·ãƒ¼ãƒ ãƒ¬ã‚¹ãªPerlinNoiseã‚’ç”Ÿæˆã—ã¾ã™ãŒã€ãã®åˆ†ã€å‡¦ç†ã«æ™‚é–“ãŒã‹ã‹ã‚Šã¾ã™ã€‚
 	* @param [fractalNoise=false] {Boolean} If you set the value to true, the method generates fractal noise.<br>
-	* trueを指定した場合、フラクタルノイズを生成します。
+	* trueã‚’æŒ‡å®šã—ãŸå ´åˆã€ãƒ•ãƒ©ã‚¯ã‚¿ãƒ«ãƒŽã‚¤ã‚ºã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	* @param [channelOptions=7] {uint} The target channels. You can use the constant of the BitmapDataChannel class. And you can use the logical OR operator (|) to combine channel values.<br>
-	* 対象とするチャンネルを指定します。BitmapDataChannelクラスの定数が使え、OR論理演算子で複数のチャンネルを組み合わせることができます。
+	* å¯¾è±¡ã¨ã™ã‚‹ãƒãƒ£ãƒ³ãƒãƒ«ã‚’æŒ‡å®šã—ã¾ã™ã€‚BitmapDataChannelã‚¯ãƒ©ã‚¹ã®å®šæ•°ãŒä½¿ãˆã€ORè«–ç†æ¼”ç®—å­ã§è¤‡æ•°ã®ãƒãƒ£ãƒ³ãƒãƒ«ã‚’çµ„ã¿åˆã‚ã›ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚
 	* @param [grayScale=false] {Boolean} If you set the value to true, a grayscale image is created by setting each of the red, green, blue color channels to identical values. But this value doesn't affects the alpha channel.<br>
-	* trueを指定した場合、RGBの各カラーチャンネルに同じ値を設定して、グレースケールのノイズが作成されます。この値はアルファチャンネルには影響しません。
+	* trueã‚’æŒ‡å®šã—ãŸå ´åˆã€RGBã®å„ã‚«ãƒ©ãƒ¼ãƒãƒ£ãƒ³ãƒãƒ«ã«åŒã˜å€¤ã‚’è¨­å®šã—ã¦ã€ã‚°ãƒ¬ãƒ¼ã‚¹ã‚±ãƒ¼ãƒ«ã®ãƒŽã‚¤ã‚ºãŒä½œæˆã•ã‚Œã¾ã™ã€‚ã“ã®å€¤ã¯ã‚¢ãƒ«ãƒ•ã‚¡ãƒãƒ£ãƒ³ãƒãƒ«ã«ã¯å½±éŸ¿ã—ã¾ã›ã‚“ã€‚
 	* @param [offsets=null] {Array} An array of points that correspond to offsets value for each octave.<br>
-	* 各オクターブのオフセット値を格納した配列です。オフセット値はPointインスタンスで指定します。
+	* å„ã‚ªã‚¯ã‚¿ãƒ¼ãƒ–ã®ã‚ªãƒ•ã‚»ãƒƒãƒˆå€¤ã‚’æ ¼ç´ã—ãŸé…åˆ—ã§ã™ã€‚ã‚ªãƒ•ã‚»ãƒƒãƒˆå€¤ã¯Pointã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã§æŒ‡å®šã—ã¾ã™ã€‚
 	* @param [interpolateType="linear"] {String} You can choose the type of interpolation from "linear" or "cos", to smoothing the noise. The value "cos" creates smoother result, but also require more processing time. The default value is "linear".<br>
-	* ノイズを滑らかにする補間のタイプを"linear"と"cos"から選択できます。"cos"の方が滑らかな結果が得られますが、その分、処理に時間がかかります。デフォルト値は"linear"です。
+	* ãƒŽã‚¤ã‚ºã‚’æ»‘ã‚‰ã‹ã«ã™ã‚‹è£œé–“ã®ã‚¿ã‚¤ãƒ—ã‚’"linear"ã¨"cos"ã‹ã‚‰é¸æŠžã§ãã¾ã™ã€‚"cos"ã®æ–¹ãŒæ»‘ã‚‰ã‹ãªçµæžœãŒå¾—ã‚‰ã‚Œã¾ã™ãŒã€ãã®åˆ†ã€å‡¦ç†ã«æ™‚é–“ãŒã‹ã‹ã‚Šã¾ã™ã€‚ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã¯"linear"ã§ã™ã€‚
 	* @example
 	* <pre><code>_bmd01 = new createjs.BitmapData(null, 320, 240);
 var baseX = _bmd01.width;
@@ -1428,22 +1428,22 @@ _bmd01.perlinNoise(baseX, baseY, numOctaves, randomSeed, stitch, fractalNoise, c
 
 	/**
 	* Performs a pixel-dissolve from the current bitmapdata to a source object.<br>
-	* 現在のBitmapDataからソースオブジェクトへのピクセルディゾルブを実行します。
+	* ç¾åœ¨ã®BitmapDataã‹ã‚‰ã‚½ãƒ¼ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¸ã®ãƒ”ã‚¯ã‚»ãƒ«ãƒ‡ã‚£ã‚¾ãƒ«ãƒ–ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
 	* @method pixelDissolve
 	* @param source {BitmapData | DisplayObject | Stage | HTMLImageElement | HTMLCanvasElement | HTMLVideoElement} An object to use as a source.<br>
-	* ソースとなるオブジェクトを指定します。
+	* ã‚½ãƒ¼ã‚¹ã¨ãªã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æŒ‡å®šã—ã¾ã™ã€‚
 	* @param sourceRect {Rectangle} A rectangle object that defines the area of the source.<br>
-	* ソースオブジェクトの範囲を示すRectangleです。
+	* ã‚½ãƒ¼ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ç¯„å›²ã‚’ç¤ºã™Rectangleã§ã™ã€‚
 	* @param destPoint {Point} The destination Point that represents the upper-left corner of the destination object.<br>
-	* ディゾルブ先の左上座標を示すPointです。
+	* ãƒ‡ã‚£ã‚¾ãƒ«ãƒ–å…ˆã®å·¦ä¸Šåº§æ¨™ã‚’ç¤ºã™Pointã§ã™ã€‚
 	* @param [buffer=null] {Array} If you want to performs consecutive pixel-dissolve, please specify the return value of the pixelDissolve().<br>
-	* 連続したピクセルディゾルブを実行したい場合は、pixelDissolve()の戻り値のbuffer配列を指定します。
+	* é€£ç¶šã—ãŸãƒ”ã‚¯ã‚»ãƒ«ãƒ‡ã‚£ã‚¾ãƒ«ãƒ–ã‚’å®Ÿè¡Œã—ãŸã„å ´åˆã¯ã€pixelDissolve()ã®æˆ»ã‚Šå€¤ã®bufferé…åˆ—ã‚’æŒ‡å®šã—ã¾ã™ã€‚
 	* @param [numPixels=0] {uint} A number of pixels to be replaced at a single process. The default value is sourceRect.width \* souceRect.height / 30.<br>
-	* 1回の処理で置き換えるピクセル数です。デフォルト値は、sourceRect.width \* souceRect.height / 30 です。
+	* 1å›žã®å‡¦ç†ã§ç½®ãæ›ãˆã‚‹ãƒ”ã‚¯ã‚»ãƒ«æ•°ã§ã™ã€‚ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã¯ã€sourceRect.width \* souceRect.height / 30 ã§ã™ã€‚
 	* @param [fillColor=0] {uint} A ARGB color value to fill the pixels, when the source object equals the current bitmapdata.<br>
-	* ソースオブジェクトが現在のBitmapDataの場合に使用されるカラー値を0xAARRGGBB形式の16進数値で指定します。
+	* ã‚½ãƒ¼ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒç¾åœ¨ã®BitmapDataã®å ´åˆã«ä½¿ç”¨ã•ã‚Œã‚‹ã‚«ãƒ©ãƒ¼å€¤ã‚’0xAARRGGBBå½¢å¼ã®16é€²æ•°å€¤ã§æŒ‡å®šã—ã¾ã™ã€‚
 	* @return {Array} Returns the buffer array. If you want to performs consecutive pixel-dissolve, pass the return value as the 4th parameter at the next calling. When the pixel-dissolve is finished, the method returns number 0.<br>
-	* buffer配列を返します。この戻り値の配列を第4引数に指定することで連続したピクセルディゾルブを実行できます。ピクセルディゾルブが終了した際には数値 0 を返します。
+	* bufferé…åˆ—ã‚’è¿”ã—ã¾ã™ã€‚ã“ã®æˆ»ã‚Šå€¤ã®é…åˆ—ã‚’ç¬¬4å¼•æ•°ã«æŒ‡å®šã™ã‚‹ã“ã¨ã§é€£ç¶šã—ãŸãƒ”ã‚¯ã‚»ãƒ«ãƒ‡ã‚£ã‚¾ãƒ«ãƒ–ã‚’å®Ÿè¡Œã§ãã¾ã™ã€‚ãƒ”ã‚¯ã‚»ãƒ«ãƒ‡ã‚£ã‚¾ãƒ«ãƒ–ãŒçµ‚äº†ã—ãŸéš›ã«ã¯æ•°å€¤ 0 ã‚’è¿”ã—ã¾ã™ã€‚
 	* @example
 	* <pre><code>function tickHandler(evt) {
   if (_buffer === 0) {
@@ -1522,12 +1522,12 @@ _bmd01.perlinNoise(baseX, baseY, numOctaves, randomSeed, stitch, fractalNoise, c
 
 	/**
 	* Scrolls an image by a specified pixel amount. Edge regions outside the scrolling area are left unchanged.<br>
-	* 指定されたピクセル量だけイメージをスクロールします。スクロール領域外のエッジ領域は変わらずにそのままになります。
+	* æŒ‡å®šã•ã‚ŒãŸãƒ”ã‚¯ã‚»ãƒ«é‡ã ã‘ã‚¤ãƒ¡ãƒ¼ã‚¸ã‚’ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã—ã¾ã™ã€‚ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«é ˜åŸŸå¤–ã®ã‚¨ãƒƒã‚¸é ˜åŸŸã¯å¤‰ã‚ã‚‰ãšã«ãã®ã¾ã¾ã«ãªã‚Šã¾ã™ã€‚
 	* @method scroll
 	* @param x {int} The amount by which to scroll horizontally.<br>
-	* x軸方向のスクロール量です。
+	* xè»¸æ–¹å‘ã®ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«é‡ã§ã™ã€‚
 	* @param y {int}  The amount by which to scroll vertically.<br>
-	* y軸方向のスクロール量です。
+	* yè»¸æ–¹å‘ã®ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«é‡ã§ã™ã€‚
 	**/
 	p.scroll = function(x, y) {
 		var ctx = this.context;
@@ -1538,14 +1538,14 @@ _bmd01.perlinNoise(baseX, baseY, numOctaves, randomSeed, stitch, fractalNoise, c
 
 	/**
 	* Sets the new color value to a pixel of the specified point. The alpha channel value is kept the current value. You must call updateContext() to reflect the results of setPixel() to the bitmapdata.<br>
-	* 指定された座標のピクセルに新しいカラー値を設定します。アルファチャンネルの値は現在の値が保たれます。setPixel()の実行結果を実際にBitmapDataに反映させるにはupdateContext()を実行する必要があります。
+	* æŒ‡å®šã•ã‚ŒãŸåº§æ¨™ã®ãƒ”ã‚¯ã‚»ãƒ«ã«æ–°ã—ã„ã‚«ãƒ©ãƒ¼å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚ã‚¢ãƒ«ãƒ•ã‚¡ãƒãƒ£ãƒ³ãƒãƒ«ã®å€¤ã¯ç¾åœ¨ã®å€¤ãŒä¿ãŸã‚Œã¾ã™ã€‚setPixel()ã®å®Ÿè¡Œçµæžœã‚’å®Ÿéš›ã«BitmapDataã«åæ˜ ã•ã›ã‚‹ã«ã¯updateContext()ã‚’å®Ÿè¡Œã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚
 	* @method setPixel
 	* @param x {uint} The x coordinate to set a color value.<br>
-	* カラー値を設定するx座標です。
+	* ã‚«ãƒ©ãƒ¼å€¤ã‚’è¨­å®šã™ã‚‹xåº§æ¨™ã§ã™ã€‚
 	* @param y {uint} The y coordinate to set a color value.<br>
-	* カラー値を設定するy座標です。
+	* ã‚«ãƒ©ãƒ¼å€¤ã‚’è¨­å®šã™ã‚‹yåº§æ¨™ã§ã™ã€‚
 	* @param color {uint} A color value to set the pixel. You can use only a RGB color value (ex. 0xRRGGBB).<br>
-	* 指定したピクセルに設定するカラー値です。0xRRGGBB形式の16進数値のみ使用できます。
+	* æŒ‡å®šã—ãŸãƒ”ã‚¯ã‚»ãƒ«ã«è¨­å®šã™ã‚‹ã‚«ãƒ©ãƒ¼å€¤ã§ã™ã€‚0xRRGGBBå½¢å¼ã®16é€²æ•°å€¤ã®ã¿ä½¿ç”¨ã§ãã¾ã™ã€‚
 	* @example
 	* <pre><code>bmd.setPixel(x, y, 0x0099FF);</code></pre>
 	**/
@@ -1571,14 +1571,14 @@ _bmd01.perlinNoise(baseX, baseY, numOctaves, randomSeed, stitch, fractalNoise, c
 
 	/**
 	* Sets the new color value including alpha channel to a pixel of the specified point. You must call updateContext() to reflect the results of setPixel32() to the bitmapdata.<br>
-	* 指定された座標のピクセルにアルファチャンネルを含めた新しいカラー値を設定します。setPixel32()の実行結果を実際にBitmapDataに反映させるにはupdateContext()を実行する必要があります。
+	* æŒ‡å®šã•ã‚ŒãŸåº§æ¨™ã®ãƒ”ã‚¯ã‚»ãƒ«ã«ã‚¢ãƒ«ãƒ•ã‚¡ãƒãƒ£ãƒ³ãƒãƒ«ã‚’å«ã‚ãŸæ–°ã—ã„ã‚«ãƒ©ãƒ¼å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚setPixel32()ã®å®Ÿè¡Œçµæžœã‚’å®Ÿéš›ã«BitmapDataã«åæ˜ ã•ã›ã‚‹ã«ã¯updateContext()ã‚’å®Ÿè¡Œã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚
 	* @method setPixel32
 	* @param x {uint} The x coordinate to set a color value.<br>
-	* カラー値を設定するx座標です。
+	* ã‚«ãƒ©ãƒ¼å€¤ã‚’è¨­å®šã™ã‚‹xåº§æ¨™ã§ã™ã€‚
 	* @param y {uint} The y coordinate to set a color value.<br>
-	* カラー値を設定するy座標です。
+	* ã‚«ãƒ©ãƒ¼å€¤ã‚’è¨­å®šã™ã‚‹yåº§æ¨™ã§ã™ã€‚
 	* @param color {uint} A color value to set the pixel. You can use only a ARGB color value (ex. 0xAARRGGBB).<br>
-	* 指定したピクセルに設定するカラー値です。0xAARRGGBB形式の16進数値のみ使用できます。
+	* æŒ‡å®šã—ãŸãƒ”ã‚¯ã‚»ãƒ«ã«è¨­å®šã™ã‚‹ã‚«ãƒ©ãƒ¼å€¤ã§ã™ã€‚0xAARRGGBBå½¢å¼ã®16é€²æ•°å€¤ã®ã¿ä½¿ç”¨ã§ãã¾ã™ã€‚
 	**/
 	p.setPixel32 = function(x, y, color) {
 		if (x < 0 || y < 0) {
@@ -1603,12 +1603,12 @@ _bmd01.perlinNoise(baseX, baseY, numOctaves, randomSeed, stitch, fractalNoise, c
 
 	/**
 	* Replaces the pixels of the specified area with the array of 2nd parameter.<br>
-	* 指定された範囲のピクセルを指定された配列のデータで差し替えます。
+	* æŒ‡å®šã•ã‚ŒãŸç¯„å›²ã®ãƒ”ã‚¯ã‚»ãƒ«ã‚’æŒ‡å®šã•ã‚ŒãŸé…åˆ—ã®ãƒ‡ãƒ¼ã‚¿ã§å·®ã—æ›¿ãˆã¾ã™ã€‚
 	* @method setPixels
 	* @param rect {Rectangle} A rectangle object that defines the area to set the pixel data.<br>
-	* ピクセルデータを差し替える範囲を示すRectangleです。
+	* ãƒ”ã‚¯ã‚»ãƒ«ãƒ‡ãƒ¼ã‚¿ã‚’å·®ã—æ›¿ãˆã‚‹ç¯„å›²ã‚’ç¤ºã™Rectangleã§ã™ã€‚
 	* @param inputArray {Array} An array to replace the pixel data. The pixel data must be stored in the order of R, G, B, A.<br>
-	* 差し替えるピクセルデータを配列で指定します。ピクセルデータの並びは、R, G, B, Aの順番にする必要があります。
+	* å·®ã—æ›¿ãˆã‚‹ãƒ”ã‚¯ã‚»ãƒ«ãƒ‡ãƒ¼ã‚¿ã‚’é…åˆ—ã§æŒ‡å®šã—ã¾ã™ã€‚ãƒ”ã‚¯ã‚»ãƒ«ãƒ‡ãƒ¼ã‚¿ã®ä¸¦ã³ã¯ã€R, G, B, Aã®é †ç•ªã«ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚
 	**/
 	p.setPixels = function(rect, inputArray) {
 		var ctx = this.context;
@@ -1623,24 +1623,24 @@ _bmd01.perlinNoise(baseX, baseY, numOctaves, randomSeed, stitch, fractalNoise, c
 
 	/**
 	* Tests the pixels of the bitmapdata with the specified threshold, and sets a new color value by its result.<br>
-	* 指定されたしきい値でBitmapDataのピクセル値をテストし、その合否によってピクセルに新たなカラー値をセットします。
+	* æŒ‡å®šã•ã‚ŒãŸã—ãã„å€¤ã§BitmapDataã®ãƒ”ã‚¯ã‚»ãƒ«å€¤ã‚’ãƒ†ã‚¹ãƒˆã—ã€ãã®åˆå¦ã«ã‚ˆã£ã¦ãƒ”ã‚¯ã‚»ãƒ«ã«æ–°ãŸãªã‚«ãƒ©ãƒ¼å€¤ã‚’ã‚»ãƒƒãƒˆã—ã¾ã™ã€‚
 	* @method threshold
 	* @param source {BitmapData | DisplayObject | Stage | HTMLImageElement | HTMLCanvasElement | HTMLVideoElement} An object to use as a source.<br>
-	* ソースとなるオブジェクトを指定します。
+	* ã‚½ãƒ¼ã‚¹ã¨ãªã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æŒ‡å®šã—ã¾ã™ã€‚
 	* @param sourceRect {Rectangle} A rectangle object that defines the area of the source.<br>
-	* ソースオブジェクトの範囲を示すRectangleです。
+	* ã‚½ãƒ¼ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ç¯„å›²ã‚’ç¤ºã™Rectangleã§ã™ã€‚
 	* @param destPoint {Point} The destination Point that represents the upper-left corner of the destination bitmapdata.<br>
-	* ピクセルの置き換え先の左上座標を示すPointです。
+	* ãƒ”ã‚¯ã‚»ãƒ«ã®ç½®ãæ›ãˆå…ˆã®å·¦ä¸Šåº§æ¨™ã‚’ç¤ºã™Pointã§ã™ã€‚
 	* @param operation {String} A string representation of the comparison operator to test the pixels. The valid value are "<", "<=", ">", ">=", "==", "!=".<br>
-	* ピクセルのテストに使う比較演算子を文字列で指定します。指定することができる値は、"<", "<=", ">", ">=", "==", "!="です。
-	* @param threshold {uint} A color value ​​to be used as a threshold. You can use only a ARGB color value (ex. 0xAARRGGBB).<br>
-	* しきい値となるカラー値を指定します。0xAARRGGBB形式の16進数値のみ使用できます。
+	* ãƒ”ã‚¯ã‚»ãƒ«ã®ãƒ†ã‚¹ãƒˆã«ä½¿ã†æ¯”è¼ƒæ¼”ç®—å­ã‚’æ–‡å­—åˆ—ã§æŒ‡å®šã—ã¾ã™ã€‚æŒ‡å®šã™ã‚‹ã“ã¨ãŒã§ãã‚‹å€¤ã¯ã€"<", "<=", ">", ">=", "==", "!="ã§ã™ã€‚
+	* @param threshold {uint} A color value â€‹â€‹to be used as a threshold. You can use only a ARGB color value (ex. 0xAARRGGBB).<br>
+	* ã—ãã„å€¤ã¨ãªã‚‹ã‚«ãƒ©ãƒ¼å€¤ã‚’æŒ‡å®šã—ã¾ã™ã€‚0xAARRGGBBå½¢å¼ã®16é€²æ•°å€¤ã®ã¿ä½¿ç”¨ã§ãã¾ã™ã€‚
 	* @param [color=0] {uint} A new color value to set the pixels in case of passing the test. You can use only a ARGB color value (ex. 0xAARRGGBB).<br>
-	* テストに合格した際にセットされる新しいカラー値を指定します。0xAARRGGBB形式の16進数値のみ使用できます。
+	* ãƒ†ã‚¹ãƒˆã«åˆæ ¼ã—ãŸéš›ã«ã‚»ãƒƒãƒˆã•ã‚Œã‚‹æ–°ã—ã„ã‚«ãƒ©ãƒ¼å€¤ã‚’æŒ‡å®šã—ã¾ã™ã€‚0xAARRGGBBå½¢å¼ã®16é€²æ•°å€¤ã®ã¿ä½¿ç”¨ã§ãã¾ã™ã€‚
 	* @param [mask=0] {uint} A value of the mask to use to isolate a color component. You can use only a ARGB color value (ex. 0xAARRGGBB).<br>
-	* 範囲を設定するマスク値を指定します。0xAARRGGBB形式の16進数値のみ使用できます。
+	* ç¯„å›²ã‚’è¨­å®šã™ã‚‹ãƒžã‚¹ã‚¯å€¤ã‚’æŒ‡å®šã—ã¾ã™ã€‚0xAARRGGBBå½¢å¼ã®16é€²æ•°å€¤ã®ã¿ä½¿ç”¨ã§ãã¾ã™ã€‚
 	* @param [copySource=false] {Boolean} A boolean value that determines whether or not to copy the pixels from the source object to the current bitmapdata, when the threshold test is false.<br>
-	* 比較結果がfalseの場合にソースオブジェクトのピクセルを現在のBitmapDataにコピーするかをBool値で指定します。
+	* æ¯”è¼ƒçµæžœãŒfalseã®å ´åˆã«ã‚½ãƒ¼ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒ”ã‚¯ã‚»ãƒ«ã‚’ç¾åœ¨ã®BitmapDataã«ã‚³ãƒ”ãƒ¼ã™ã‚‹ã‹ã‚’Boolå€¤ã§æŒ‡å®šã—ã¾ã™ã€‚
 	* @example
 	* <pre><code>_bmd01 = new createjs.BitmapData(_image01);
 var source = _bmd01;
@@ -1727,10 +1727,10 @@ _bmd01.threshold(source, sourceRect, destPoint, operation, threshold, color, mas
 
 	/**
 	* Returns a string representation of the bitmapdata. The name property is used by output.<br>
-	* BitmapDataの文字列表現を返します。nameプロパティの値が使用されます。
+	* BitmapDataã®æ–‡å­—åˆ—è¡¨ç¾ã‚’è¿”ã—ã¾ã™ã€‚nameãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®å€¤ãŒä½¿ç”¨ã•ã‚Œã¾ã™ã€‚
 	* @method toString
 	* @return {String} A string representation of the bitmapdata.<br>
-	* BitmapDataの文字列表現です。
+	* BitmapDataã®æ–‡å­—åˆ—è¡¨ç¾ã§ã™ã€‚
 	**/
 	p.toString = function() {
 		return "[BitmapData (name=" + this.name + ")]";
@@ -1738,7 +1738,7 @@ _bmd01.threshold(source, sourceRect, destPoint, operation, threshold, color, mas
 
 	/**
 	* Updates the context with the imageData (instance property). You must call this method after calling setPixel() or setPixel32(). By calling updateContext(), the bitmapdata is updated with results of setPixel() or setPixel32().<br>
-	* 内部に保持しているimageDataの内容でcontextを更新します。setPixel(), setPixel32()の処理を行った後は、このメソッドを実行する必要があります。updateContext()を実行することでsetPixel(), setPixel32()で行った処理がBitmapDataに反映されます。
+	* å†…éƒ¨ã«ä¿æŒã—ã¦ã„ã‚‹imageDataã®å†…å®¹ã§contextã‚’æ›´æ–°ã—ã¾ã™ã€‚setPixel(), setPixel32()ã®å‡¦ç†ã‚’è¡Œã£ãŸå¾Œã¯ã€ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®Ÿè¡Œã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚updateContext()ã‚’å®Ÿè¡Œã™ã‚‹ã“ã¨ã§setPixel(), setPixel32()ã§è¡Œã£ãŸå‡¦ç†ãŒBitmapDataã«åæ˜ ã•ã‚Œã¾ã™ã€‚
 	* @method updateContext
 	**/
 	p.updateContext = function() {
@@ -1747,7 +1747,7 @@ _bmd01.threshold(source, sourceRect, destPoint, operation, threshold, color, mas
 
 	/**
 	* Updates the imageData of the instance property to the latest state. You must call this method when you operated context directly or you called updateCache() at the cache that got by getBitmapData().<br>
-	* 内部に保持しているimageDataを最新の状態に更新します。contextを直接操作した場合やgetBitmapData()で取得したcacheをupdateCache()した場合には、このメソッドを実行する必要があります。
+	* å†…éƒ¨ã«ä¿æŒã—ã¦ã„ã‚‹imageDataã‚’æœ€æ–°ã®çŠ¶æ…‹ã«æ›´æ–°ã—ã¾ã™ã€‚contextã‚’ç›´æŽ¥æ“ä½œã—ãŸå ´åˆã‚„getBitmapData()ã§å–å¾—ã—ãŸcacheã‚’updateCache()ã—ãŸå ´åˆã«ã¯ã€ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®Ÿè¡Œã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚
 	* @method updateImageData
 	**/
 	p.updateImageData = function() {
@@ -1786,14 +1786,14 @@ _bmd01.threshold(source, sourceRect, destPoint, operation, threshold, color, mas
 
 	/**
 	* The BitmapDataChannel class is an enumeration of constant values that indicate which channel to use: red, blue, green, alpha. When you call some methods, you can use the bitwise OR operator (|) to combine BitmapDataChannel constants to indicate multiple color channels.<br><br>
-	* BitmapDataChannelクラスは、赤、緑、青、アルファのいずれのチャンネルを使用するかを示す際に使用できる定数値を保持しています。メソッドを呼び出すとき、OR論理演算子を使ってBitmapDataChannel定数を結合することにより、複数のカラーチャンネルを同時に指定することができます。
+	* BitmapDataChannelã‚¯ãƒ©ã‚¹ã¯ã€èµ¤ã€ç·‘ã€é’ã€ã‚¢ãƒ«ãƒ•ã‚¡ã®ã„ãšã‚Œã®ãƒãƒ£ãƒ³ãƒãƒ«ã‚’ä½¿ç”¨ã™ã‚‹ã‹ã‚’ç¤ºã™éš›ã«ä½¿ç”¨ã§ãã‚‹å®šæ•°å€¤ã‚’ä¿æŒã—ã¦ã„ã¾ã™ã€‚ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™ã¨ãã€ORè«–ç†æ¼”ç®—å­ã‚’ä½¿ã£ã¦BitmapDataChannelå®šæ•°ã‚’çµåˆã™ã‚‹ã“ã¨ã«ã‚ˆã‚Šã€è¤‡æ•°ã®ã‚«ãƒ©ãƒ¼ãƒãƒ£ãƒ³ãƒãƒ«ã‚’åŒæ™‚ã«æŒ‡å®šã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚
 	* @static
 	* @class BitmapDataChannel
 	**/
 	var BitmapDataChannel = {
 		/**
 		* The value represents alpha channel.<br>
-		* アルファチャンネルを表す定数です。
+		* ã‚¢ãƒ«ãƒ•ã‚¡ãƒãƒ£ãƒ³ãƒãƒ«ã‚’è¡¨ã™å®šæ•°ã§ã™ã€‚
 		* @static
 		* @property ALPHA
 		* @type uint
@@ -1803,7 +1803,7 @@ _bmd01.threshold(source, sourceRect, destPoint, operation, threshold, color, mas
 
 		/**
 		* The value represents blue channel.<br>
-		* 青チャンネルを表す定数です。
+		* é’ãƒãƒ£ãƒ³ãƒãƒ«ã‚’è¡¨ã™å®šæ•°ã§ã™ã€‚
 		* @static
 		* @property BLUE
 		* @type uint
@@ -1813,7 +1813,7 @@ _bmd01.threshold(source, sourceRect, destPoint, operation, threshold, color, mas
 
 		/**
 		* The value represents green channel.<br>
-		* 緑チャンネルを表す定数です。
+		* ç·‘ãƒãƒ£ãƒ³ãƒãƒ«ã‚’è¡¨ã™å®šæ•°ã§ã™ã€‚
 		* @static
 		* @property GREEN
 		* @type uint
@@ -1823,7 +1823,7 @@ _bmd01.threshold(source, sourceRect, destPoint, operation, threshold, color, mas
 
 		/**
 		* The value represents red channel.<br>
-		* 赤チャンネルを表す定数です。
+		* èµ¤ãƒãƒ£ãƒ³ãƒãƒ«ã‚’è¡¨ã™å®šæ•°ã§ã™ã€‚
 		* @static
 		* @property RED
 		* @type uint
@@ -1847,25 +1847,25 @@ _bmd01.threshold(source, sourceRect, destPoint, operation, threshold, color, mas
 
 	/**
 	* ColorTransform class can be used to adjust the color values of the bitmapdata. The ColorTransform maintains multiplier and offset in each channel: red, green, blue, alpha. When a ColorTransform is applied to a bitmapdata, a new value for each color channel is calculated like this.<br>New value = (Old value \* Multiplier) + Offset<br><br>
-	* ColorTransformクラスは、BitmapDataクラスのカラー値を調整する際に使用することができます。R, G, B, Aの各チャンネルで乗数値（Multiplier）とオフセット値（Offset）を保持します。ColorTransformオブジェクトを適用する際に各チャンネルに設定される値の算出方法は下記の通りです。<br>新しい値 = (古い値 \* Multiplier) + Offset
+	* ColorTransformã‚¯ãƒ©ã‚¹ã¯ã€BitmapDataã‚¯ãƒ©ã‚¹ã®ã‚«ãƒ©ãƒ¼å€¤ã‚’èª¿æ•´ã™ã‚‹éš›ã«ä½¿ç”¨ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚R, G, B, Aã®å„ãƒãƒ£ãƒ³ãƒãƒ«ã§ä¹—æ•°å€¤ï¼ˆMultiplierï¼‰ã¨ã‚ªãƒ•ã‚»ãƒƒãƒˆå€¤ï¼ˆOffsetï¼‰ã‚’ä¿æŒã—ã¾ã™ã€‚ColorTransformã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’é©ç”¨ã™ã‚‹éš›ã«å„ãƒãƒ£ãƒ³ãƒãƒ«ã«è¨­å®šã•ã‚Œã‚‹å€¤ã®ç®—å‡ºæ–¹æ³•ã¯ä¸‹è¨˜ã®é€šã‚Šã§ã™ã€‚<br>æ–°ã—ã„å€¤ = (å¤ã„å€¤ \* Multiplier) + Offset
 	* @class ColorTransform
 	* @constructor
 	* @param [redMultiplier=1] {Number} The value for the red multiplier.<br>
-	* 赤チャンネルの乗数値です。
+	* èµ¤ãƒãƒ£ãƒ³ãƒãƒ«ã®ä¹—æ•°å€¤ã§ã™ã€‚
 	* @param [greenMultiplier=1] {Number} The value for the green multiplier.<br>
-	* 緑チャンネルの乗数値です。
+	* ç·‘ãƒãƒ£ãƒ³ãƒãƒ«ã®ä¹—æ•°å€¤ã§ã™ã€‚
 	* @param [blueMultiplier=1] {Number} The value for the blue multiplier.<br>
-	* 青チャンネルの乗数値です。
+	* é’ãƒãƒ£ãƒ³ãƒãƒ«ã®ä¹—æ•°å€¤ã§ã™ã€‚
 	* @param [alphaMultiplier=1] {Number} The value for the alpha multiplier.<br>
-	* アルファチャンネルの乗数値です。
+	* ã‚¢ãƒ«ãƒ•ã‚¡ãƒãƒ£ãƒ³ãƒãƒ«ã®ä¹—æ•°å€¤ã§ã™ã€‚
 	* @param [redOffset=0] {Number} The offset value for the red color channel.<br>
-	* 赤チャンネルのオフセット値です。
+	* èµ¤ãƒãƒ£ãƒ³ãƒãƒ«ã®ã‚ªãƒ•ã‚»ãƒƒãƒˆå€¤ã§ã™ã€‚
 	* @param [greenOffset=0] {Number} The offset value for the green color channel.<br>
-	* 緑チャンネルのオフセット値です。
+	* ç·‘ãƒãƒ£ãƒ³ãƒãƒ«ã®ã‚ªãƒ•ã‚»ãƒƒãƒˆå€¤ã§ã™ã€‚
 	* @param [blueOffset=0] {Number} The offset value for the blue color channel.<br>
-	* 青チャンネルのオフセット値です。
+	* é’ãƒãƒ£ãƒ³ãƒãƒ«ã®ã‚ªãƒ•ã‚»ãƒƒãƒˆå€¤ã§ã™ã€‚
 	* @param [alphaOffset=0] {Number} The offset value for the alpha channel.<br>
-	* アルファチャンネルのオフセット値です。
+	* ã‚¢ãƒ«ãƒ•ã‚¡ãƒãƒ£ãƒ³ãƒãƒ«ã®ã‚ªãƒ•ã‚»ãƒƒãƒˆå€¤ã§ã™ã€‚
 	**/
 	var ColorTransform = (function() {
 		function ColorTransform(redMultiplier, greenMultiplier, blueMultiplier, alphaMultiplier, redOffset, greenOffset, blueOffset, alphaOffset) {
@@ -1882,7 +1882,7 @@ _bmd01.threshold(source, sourceRect, destPoint, operation, threshold, color, mas
 		var p = ColorTransform.prototype = {
 			/**
 			* The RGB color value for a ColorTransform object. When you set a value for this property, use the format 0xRRGGBB. it changes the three color offset values (redOffset, greenOffset, blueOffset) accordingly, and it sets the three color multiplier values (redMultiplier, greenMultiplier, blueMultiplier) to 0. The alpha channel's multiplier and offset values don't change.<br>
-			* ColortransformオブジェクトのRGBカラー値を返します。このプロパティに値を設定する際には、0xRRGGBB形式の16進数値を使用して下さい。設定された値は、R, G, Bのoffset値として設定され、同時に3つのカラー乗数値 (redMultiplier, greenMultiplier, blueMultiplier) が0に設定されます。アルファチャンネルの乗数値とオフセット値は変更しません。
+			* Colortransformã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®RGBã‚«ãƒ©ãƒ¼å€¤ã‚’è¿”ã—ã¾ã™ã€‚ã“ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã«å€¤ã‚’è¨­å®šã™ã‚‹éš›ã«ã¯ã€0xRRGGBBå½¢å¼ã®16é€²æ•°å€¤ã‚’ä½¿ç”¨ã—ã¦ä¸‹ã•ã„ã€‚è¨­å®šã•ã‚ŒãŸå€¤ã¯ã€R, G, Bã®offsetå€¤ã¨ã—ã¦è¨­å®šã•ã‚Œã€åŒæ™‚ã«3ã¤ã®ã‚«ãƒ©ãƒ¼ä¹—æ•°å€¤ (redMultiplier, greenMultiplier, blueMultiplier) ãŒ0ã«è¨­å®šã•ã‚Œã¾ã™ã€‚ã‚¢ãƒ«ãƒ•ã‚¡ãƒãƒ£ãƒ³ãƒãƒ«ã®ä¹—æ•°å€¤ã¨ã‚ªãƒ•ã‚»ãƒƒãƒˆå€¤ã¯å¤‰æ›´ã—ã¾ã›ã‚“ã€‚
 			* @property color
 			* @type uint
 			**/
@@ -1901,7 +1901,7 @@ _bmd01.threshold(source, sourceRect, destPoint, operation, threshold, color, mas
 
 		/**
 		* The value for the red multiplier.<br>
-		* 赤チャンネル値に乗算する数値です。
+		* èµ¤ãƒãƒ£ãƒ³ãƒãƒ«å€¤ã«ä¹—ç®—ã™ã‚‹æ•°å€¤ã§ã™ã€‚
 		* @property redMultiplier
 		* @type Number
 		* @default 1
@@ -1910,7 +1910,7 @@ _bmd01.threshold(source, sourceRect, destPoint, operation, threshold, color, mas
 
 		/**
 		* The value for the green multiplier.<br>
-		* 緑チャンネル値に乗算する数値です。
+		* ç·‘ãƒãƒ£ãƒ³ãƒãƒ«å€¤ã«ä¹—ç®—ã™ã‚‹æ•°å€¤ã§ã™ã€‚
 		* @property greenMultiplier
 		* @type Number
 		* @default 1
@@ -1919,7 +1919,7 @@ _bmd01.threshold(source, sourceRect, destPoint, operation, threshold, color, mas
 
 		/**
 		* The value for the blue multiplier.<br>
-		* 青チャンネル値に乗算する数値です。
+		* é’ãƒãƒ£ãƒ³ãƒãƒ«å€¤ã«ä¹—ç®—ã™ã‚‹æ•°å€¤ã§ã™ã€‚
 		* @property blueMultiplier
 		* @type Number
 		* @default 1
@@ -1928,7 +1928,7 @@ _bmd01.threshold(source, sourceRect, destPoint, operation, threshold, color, mas
 
 		/**
 		* The value for the alpha multiplier.<br>
-		* アルファチャンネル値に乗算する数値です。
+		* ã‚¢ãƒ«ãƒ•ã‚¡ãƒãƒ£ãƒ³ãƒãƒ«å€¤ã«ä¹—ç®—ã™ã‚‹æ•°å€¤ã§ã™ã€‚
 		* @property alphaMultiplier
 		* @type Number
 		* @default 1
@@ -1937,7 +1937,7 @@ _bmd01.threshold(source, sourceRect, destPoint, operation, threshold, color, mas
 
 		/**
 		* The offset value for the red color channel.<br>
-		* 赤チャンネル値にredMultiplier値を乗算した後に加算する数値です。数値の範囲は -255～255です。
+		* èµ¤ãƒãƒ£ãƒ³ãƒãƒ«å€¤ã«redMultiplierå€¤ã‚’ä¹—ç®—ã—ãŸå¾Œã«åŠ ç®—ã™ã‚‹æ•°å€¤ã§ã™ã€‚æ•°å€¤ã®ç¯„å›²ã¯ -255ï½ž255ã§ã™ã€‚
 		* @property redOffset
 		* @type Number
 		* @default 0
@@ -1946,7 +1946,7 @@ _bmd01.threshold(source, sourceRect, destPoint, operation, threshold, color, mas
 
 		/**
 		* The offset value for the green color channel.<br>
-		* 緑チャンネル値にgreenMultiplier値を乗算した後に加算する数値です。数値の範囲は -255～255です。
+		* ç·‘ãƒãƒ£ãƒ³ãƒãƒ«å€¤ã«greenMultiplierå€¤ã‚’ä¹—ç®—ã—ãŸå¾Œã«åŠ ç®—ã™ã‚‹æ•°å€¤ã§ã™ã€‚æ•°å€¤ã®ç¯„å›²ã¯ -255ï½ž255ã§ã™ã€‚
 		* @property greenOffset
 		* @type Number
 		* @default 0
@@ -1955,7 +1955,7 @@ _bmd01.threshold(source, sourceRect, destPoint, operation, threshold, color, mas
 
 		/**
 		* The offset value for the blue color channel.<br>
-		* 青チャンネル値にblueMultiplier値を乗算した後に加算する数値です。数値の範囲は -255～255です。
+		* é’ãƒãƒ£ãƒ³ãƒãƒ«å€¤ã«blueMultiplierå€¤ã‚’ä¹—ç®—ã—ãŸå¾Œã«åŠ ç®—ã™ã‚‹æ•°å€¤ã§ã™ã€‚æ•°å€¤ã®ç¯„å›²ã¯ -255ï½ž255ã§ã™ã€‚
 		* @property blueOffset
 		* @type Number
 		* @default 0
@@ -1964,7 +1964,7 @@ _bmd01.threshold(source, sourceRect, destPoint, operation, threshold, color, mas
 
 		/**
 		* The offset value for the alpha channel.<br>
-		* アルファチャンネル値にalphaMultiplier値を乗算した後に加算する数値です。数値の範囲は -255～255です。
+		* ã‚¢ãƒ«ãƒ•ã‚¡ãƒãƒ£ãƒ³ãƒãƒ«å€¤ã«alphaMultiplierå€¤ã‚’ä¹—ç®—ã—ãŸå¾Œã«åŠ ç®—ã™ã‚‹æ•°å€¤ã§ã™ã€‚æ•°å€¤ã®ç¯„å›²ã¯ -255ï½ž255ã§ã™ã€‚
 		* @property alphaOffset
 		* @type Number
 		* @default 0
@@ -1973,10 +1973,10 @@ _bmd01.threshold(source, sourceRect, destPoint, operation, threshold, color, mas
 
 		/**
 		* Creates a clone of the current ColorTransform object.<br>
-		* 現在のColorTransformのクローンを作成します。
+		* ç¾åœ¨ã®ColorTransformã®ã‚¯ãƒ­ãƒ¼ãƒ³ã‚’ä½œæˆã—ã¾ã™ã€‚
 		* @method clone
 		* @return {ColorTransform} A clone of the current ColorTransform object.<br>
-		* 現在のColorTransformのクローンです。
+		* ç¾åœ¨ã®ColorTransformã®ã‚¯ãƒ­ãƒ¼ãƒ³ã§ã™ã€‚
 		**/
 		p.clone = function() {
 			var ctf = Object.create(ColorTransform.prototype);
@@ -1993,10 +1993,10 @@ _bmd01.threshold(source, sourceRect, destPoint, operation, threshold, color, mas
 
 		/**
 		* Concatenates the ColorTranform object specified by the 2nd parameter with the current ColorTransform object.<br>
-		* 引数のColorTransformと現在のColorTransformを連結します。
+		* å¼•æ•°ã®ColorTransformã¨ç¾åœ¨ã®ColorTransformã‚’é€£çµã—ã¾ã™ã€‚
 		* @method concat
 		* @param second {ColorTransform} A ColorTransform object to be combined with the current ColorTransform object.<br>
-		* 現在のColorTransformオブジェクトと結合するColorTransformオブジェクトです。
+		* ç¾åœ¨ã®ColorTransformã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨çµåˆã™ã‚‹ColorTransformã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã§ã™ã€‚
 		**/
 		p.concat = function(second) {
 			this.redOffset += this.redMultiplier * second.redOffset;
@@ -2011,10 +2011,10 @@ _bmd01.threshold(source, sourceRect, destPoint, operation, threshold, color, mas
 
 		/**
 		* Returns a string that describes all of the properties of the ColorTransform object.<br>
-		* ColorTransformのすべてのプロパティを列挙した文字列表現を返します。
+		* ColorTransformã®ã™ã¹ã¦ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’åˆ—æŒ™ã—ãŸæ–‡å­—åˆ—è¡¨ç¾ã‚’è¿”ã—ã¾ã™ã€‚
 		* @method toString
 		* @return {String} A string representation of the ColorTransform object.<br>
-		* ColorTransformの文字列表現です。
+		* ColorTransformã®æ–‡å­—åˆ—è¡¨ç¾ã§ã™ã€‚
 		**/
 		p.toString = function() {
 			return "[ColorTransform (redMultiplier=" + this.redMultiplier + ", greenMultiplier=" + this.greenMultiplier + ", blueMultiplier=" + this.blueMultiplier + ", alphaMultiplier=" + this.alphaMultiplier + ", redOffset=" + this.redOffset + ", greenOffset=" + this.greenOffset + ", blueOffset=" + this.blueOffset + ", alphaOffset=" + this.alphaOffset + ")]";
