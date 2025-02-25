@@ -686,6 +686,7 @@ _bmd02.fillRect(rect, color02);</code></pre>
   _stage.update();
 }</code></pre>
 	**/
+	
 	p.floodFill = function(x, y, color) {
 		if (this._contextChanged) this.updateImageData();
 		var imgData = this._imageData;
@@ -696,12 +697,13 @@ _bmd02.fillRect(rect, color02);</code></pre>
 		if (x < 0 || y < 0 || w <= x || h <= y) {
 			return;
 		}
+		
 		var targetColor = this.getPixel32(x, y);
-		//alert(targetColor)
-		//4278190080 //// bu siyah rengi....
-		if (targetColor === color||targetColor===4278190080) {
-			return;
-		}
+//alert(targetColor)
+//4278190080 //// this black color....
+if (targetColor === color||targetColor===4278190080) {
+return;
+}
 		var d = imgData.data;
 		var buffer = [new createjs.Point(x, y)];
 		while (buffer.length) {
