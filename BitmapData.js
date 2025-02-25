@@ -695,7 +695,13 @@ _bmd02.fillRect(rect, color02);</code></pre>
 		x = x >> 0;
 		y = y >> 0;
 		if (x < 0 || y < 0 || w <= x || h <= y) {
-			return;
+		return;
+		}
+		var targetColor = this.getPixel32(x, y);
+		//alert(targetColor)
+		//4278190080 //// this black color....
+		if (targetColor === color||targetColor===4278190080) {
+		return;
 		}
 		
 		var targetColor = this.getPixel32(x, y);
