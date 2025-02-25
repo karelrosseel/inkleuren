@@ -71,7 +71,7 @@ function sekiller() {
     bitmapImageObject.addEventListener("mousedown", fillAtPoint);
   }
 
-  changeImageToBitmap(new Pic("https://raw.githubusercontent.com/karelrosseel/inkleuren/master/assets/boyama.png"));//boyama.png
+  changeImageToBitmap(new asset("boyama.png"));
 
   function fillAtPoint(e) {
     var pt = e.target.globalToLocal(stage.mouseX, stage.mouseY);
