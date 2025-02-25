@@ -1,0 +1,431 @@
+<html>
+    <head>
+        
+<script src="https://raw.githubusercontent.com/karelrosseel/inkleuren/BitmapData.js"></script>
+<script type=module>
+    import "https://zimjs.org/cdn/017/zim_pizzazz"
+
+new Frame(FIT, 1280, 720, white, dark, ready)
+function ready(){
+
+  F.color= white;
+  new Button(AUTO, AUTO,"inkleuren").pos(10,10,LEFT,TOP).tap(()=>{window.location.reload("Refresh")});
+  
+  
+var path = "https://raw.githubusercontent.com/karelrosseel/inkleuren/master/assets/";
+var assets = ["indirPNG.png"]
+var eklenecekResimlerListesi=["boyama.png","top.png","testResim.png","testResimInk.png"]
+
+for(var i=0; i<eklenecekResimlerListesi.length; i++){
+assets.push("https://raw.githubusercontent.com/karelrosseel/inkleuren/master/assets/"+eklenecekResimlerListesi[i]+"")
+ S.update(); // by Karel Rosseel
+}
+
+
+
+
+
+// these pages get loaded without preloading
+var later = [
+
+];
+  
+F.loadAssets(["gf_Roboto", "gf_Chewy", "indirPNG.png",  "test.png", "boyama.png"],
+             "https://raw.githubusercontent.com/karelrosseel/inkleuren/master/assets/"
+            )
+  F.on("complete", ()=>{
+    STYLE = {font:"Roboto"}
+    
+    
+function sekiller(){
+     class ButtonExdent extends Container {
+          
+      constructor(options={}) {
+          
+      super();
+
+      this.genielik=options.width||200;
+      this.yikseklik=options.height||50
+      this.metinText=options.metinText||""
+
+
+
+      this.buton=new Rectangle(180,70,white,black,1,5)
+
+
+      this.yazi=new Label(this.metinText, 35, "Arial", "black");
+      this.yaziyiOrtala=function(){
+          
+          this.yazi.x=this.buton.width/2-this.yazi.width/2
+          this.yazi.y=this.buton.height/2-this.yazi.height/2
+      }
+
+      this.yaziyiOrtala()
+
+      this.addChild(this.buton,this.yazi)
+
+      }
+  }
+  
+
+
+
+    function rgbaToHex(rgba) {
+        var matches = rgba.replace(/\s/g, "").match(/^rgba?\(([\d,\.]+)\)/i);
+        if (!matches || matches.length < 2) {
+          return 0;
+        }
+        var splits = matches[1].split(",");
+        if (splits.length < 4) {
+          return 0;
+        }
+        var colors = [];
+        for (var i = 0, l = 4; i < l; i++) {
+          var c;
+          if (i !== 3) {
+            c = parseInt(splits[i]);
+            if (isNaN(c)) {
+              return 0;
+            }
+          } else {
+            c = parseFloat(splits[i]);
+            if (isNaN(c)) {
+              return 0;
+            }
+            c = Math.round(c * 255);
+          }
+          colors[i] = Math.min(c, 255);
+        }
+        return ((colors[3] << 24) | (colors[0] << 16) | (colors[1] << 8) | colors[2]) >>> 0;
+      }
+      
+      console.log(rgbaToHex("rgba(244, 79, 66, 1)").toString(16)); // ffff0000
+
+
+      const loader = new Loader({
+        frame:F,
+        label:"UPLOAD",
+        width:200,
+        height:70,
+        corner:10
+     }).pos(10,250);
+     loader.on("loaded", e=>{
+        loop(e.bitmaps, bitmap=>{
+
+           //bitmap.centerReg().drag();
+           resmiBitmapaDonustur(bitmap,true)
+        });
+        //loader.removeFrom();
+        S.update();
+     });
+     
+     // and to later save for instance in a button event:
+
+
+    const stepperResimSirasi = new Stepper({width:90,min:1,max:eklenecekResimlerListesi.length}).pos(10,350).change(()=>{
+      zog(stepperResimSirasi.selectedIndex);
+      zog(stepperResimSirasi.currentValue);
+
+      resmiBitmapaDonustur(new Pic(eklenecekResimlerListesi[stepperResimSirasi.selectedIndex]),false)
+      S.update() // by Karel Rosseel
+
+   });
+
+   stepperResimSirasi.sca(.7)
+
+    var resimBoyanan
+    var resimCont;
+    var resimBitmapData;
+    var bitmapResimOgesi;
+    var renkRGB="255, 35, 35"
+    var bitmapDataCont=new Container()
+    S.addChild(bitmapDataCont)
+
+    var tempDegerler={
+
+      tempResimDeger:"",
+      tempYuklemeBooleanDeger:false
+
+    }
+
+    function resmiBitmapaDonustur(resimDeger,yuklemeyleBooleanDeger){
+
+        while(bitmapDataCont.numChildren>0){
+
+            bitmapDataCont.removeChildAt(0)
+        }
+
+        if(yuklemeyleBooleanDeger==false){
+
+            resimBoyanan=resimDeger
+        }else{
+
+            resimBoyanan=resimDeger
+        }
+        
+        tempDegerler.tempResimDeger=resimDeger
+        tempDegerler.tempYuklemeBooleanDeger=yuklemeyleBooleanDeger
+
+        //resimBoyanan=new Pic("testResim.png")
+        //resimBoyanan=new Pic("boyama.png")
+        resimCont = new Container();
+     
+        bitmapDataCont.addChild(resimCont);
+        //resimBoyanan.sca(.7)
+
+
+
+        resimBoyanan.width=820 //picture painted FotoGeschilderd 
+        resimBoyanan.height=580
+
+        if(resimBoyanan.width>820){
+
+            resimBoyanan.width=820
+
+            //resimBoyanan.height=580
+
+        }
+
+        
+
+
+
+        // if(resimBoyanan.width>=820){
+
+        //     resimBoyanan.width=820
+        // }else{
+
+        //     resimBoyanan.width=resimBoyanan.width
+        // }
+        
+
+        var resimKenarlik=new Rectangle(resimBoyanan.width,resimBoyanan.height,faint,"#000000",1) //rgba(0,0,0,.01)
+
+        resimCont.addChild(resimBoyanan,resimKenarlik)
+        resimCont.cache(0, 0, 1280, 720 ); //1440, 800 // canvas before changed by Karel Rosseel
+        resimCont.x=250
+        resimCont.y=50 // was 250 // picture must be aligned heigher// by Karel Rosseel
+    
+        resimBitmapData = new createjs.BitmapCache(resimCont.cacheCanvas)//new Bitmapdata(); //createjs.BitmapData
+        bitmapResimOgesi = new Bitmap(resimBitmapData.canvas); //createjs.Bitmap
+
+       // bitmapDataCont.removeChild(resimCont);
+        bitmapDataCont.addChild(bitmapResimOgesi);
+    
+        bitmapResimOgesi.x=1280/2-resimBoyanan.width/2-50
+        bitmapResimOgesi.y=720/2-resimBoyanan.height/2
+        S.update();
+
+//       bitmapResimOgesi.addEventListener("mousedown", resimParcalarinaDokunuldu);
+
+    }
+
+   
+    resmiBitmapaDonustur(new Pic("boyama.png"),false)
+
+    var temizleButon=new ButtonExdent({width:180,height:60,metinText:"Temizle"})
+    new createjs.ButtonHelper(temizleButon)
+    temizleButon.pos(10,130)
+    S.addChild(temizleButon)
+
+    temizleButon.on("click",resmiTemizleFun)
+
+    function resmiTemizleFun(){
+
+      resmiBitmapaDonustur(tempDegerler.tempResimDeger,tempDegerler.tempYuklemeBooleanDeger)
+
+    }
+
+
+
+    function resimParcalarinaDokunuldu(e) {
+
+
+        var pt = e.target.globalToLocal(S.mouseX, S.mouseY);
+        resimBitmapData.floodFill(pt.x, pt.y, rgbaToHex("rgba("+renkRGB+", 1)"));
+        
+        S.update();
+    }
+    
+    
+
+    var saveButton = new Pic("indirPNG.png")
+    new createjs.ButtonHelper(saveButton)
+    saveButton.pos(10,450)
+    S.addChild(saveButton)
+
+     saveButton.on("click",()=>{
+
+        loader.save({content:bitmapDataCont,filename :"resim",quality:1,x:bitmapResimOgesi.x,y:bitmapResimOgesi.y,width:resimBoyanan.width,height:resimBoyanan.height}); 
+     })
+    ////////////////////////// Renkler //////////////////////////////
+
+    const colorPicker = new ColorPicker({
+        width:450,height:400,
+        cols:50,
+        alphaPicker:false,
+        buttonBar:false,
+    spectrumTitle:"gekozen kleur, klik voor nieuwe kleur"
+    }).sca(2).pos(10, -70, RIGHT, BOTTOM)//.top()
+
+
+   // .show() // use show() and hide() with ColorPicker. As of ZIM ZIM 01 can also use pos(), loc(), center(), etc.
+    .change(()=>{
+       zog(colorPicker.selectedColor); // #ffcc99, etc. after pressing OK
+       zog(colorPicker.selectedAlpha); // 0-1
+
+       if(colorPicker.selectedColor=="#000000"){
+
+            colorPicker.selectedColor="#0e0e0e"
+       }
+       
+       renkRGB=""+hexToRgb(colorPicker.selectedColor).r+","+hexToRgb(colorPicker.selectedColor).g+","+hexToRgb(colorPicker.selectedColor).b+""
+       
+
+       function hexToRgb(hex) {
+        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        return result ? {
+          r: parseInt(result[1], 16),
+          g: parseInt(result[2], 16),
+          b: parseInt(result[3], 16)
+        } : null;
+      }
+
+      rectGenel.color=colorPicker.selectedColor
+      
+
+    });
+
+    var renklerCont=new Container()
+    S.addChild(renklerCont)
+    var defaultRenkListesi=["#FF2323","#FFC300","#E9FF30","#E9F86C","#49E144","#6FFF30","#2980B9","#7ccfff","#FA3BE9","#3BFAE9","#D35400","#E59866","#0e0e0e","#FFFFFF"]
+    var renkKutulariListesi=[]
+
+    var rectGenel;
+    function defaultRenkKutulariniEkle(){
+
+        for(var i=0; i<defaultRenkListesi.length; i++){
+
+            var rect=new Rectangle(60,60,defaultRenkListesi[i],black)
+            rect.x=(i%2)*rect.width+1280-rect.width*2-50
+            rect.y=Math.floor(i/2)*rect.height+50
+            renklerCont.addChild(rect)
+            new createjs.ButtonHelper(rect)
+            renkKutulariListesi.push(rect)
+            renkKutulariListesi[i].addEventListener("mousedown",renkKutularinaDokunuldu)
+        }
+
+/// to see the selected color
+new Label({text:"klik vlakje\nkies kleur\nklik tekening", size:30, font:"Chewy", align:CENTER}).pos(1100,550).bot()
+        rectGenel=new Rectangle(120,50,"grey",black,3).sha() // color set by Karel at startup is grey
+        rectGenel.x=1110 // was 1270 // changed by Karel Rosseel because need to be under picker
+        rectGenel.y=475
+        renklerCont.addChild(rectGenel)
+        rectGenel.on("click",()=>{
+
+            colorPicker.show().pos(10,-60, RIGHT, BOTTOM)
+        })
+    }
+
+    defaultRenkKutulariniEkle()
+
+    function renkKutularinaDokunuldu(e){
+
+        var currentKutu=e.currentTarget
+
+        if(currentKutu.color=="#000000"){
+
+            currentKutu.color="#0e0e0e"
+       }
+       
+       renkRGB=""+hexToRgb(currentKutu.color).r+","+hexToRgb(currentKutu.color).g+","+hexToRgb(currentKutu.color).b+""
+       
+       rectGenel.color=currentKutu.color
+
+       function hexToRgb(hex) {
+        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        return result ? {
+          r: parseInt(result[1], 16),
+          g: parseInt(result[2], 16),
+          b: parseInt(result[3], 16)
+        } : null;
+      }
+    }
+    } // end of function
+    sekiller();
+    
+    //// end of skeiller.js /// imported into one file ///////
+    
+    ///////////////// original file start here
+// new Pic("https://raw.githubusercontent.com/karelrosseel/inkleuren/master/assets/boyama.png").center();
+    var image = new Pic("boyama.png");
+   
+
+
+    class resimExdent extends Container {
+
+          constructor() {
+            super();
+
+
+
+            var resimHit=new Shape();
+            resimHit.graphics.beginFill("red").rect(0,0,100,100)
+
+            this.genelCont=new Container();
+            this.genelCont.addTo(this)
+            //this.genelCont.pos(0,0) 
+
+            //this.resim=new Bitmap(image)
+            this.resim = new Pic("test.png").clone() ///// 
+
+
+            this.resim.x=0
+            this.resim.y=0
+
+
+
+            this.text = new Label({
+                text:"Nieuw toevoegen",
+                size:30,
+                font:"Roboto",
+                color:"black",
+                rollColor:"grey",
+                bold:false,
+                italic:false
+            });
+
+            this.text.x=this.resim.width/2-this.text.width/2
+            this.text.y=this.resim.height/2-this.text.height/2
+
+            this.resim.addTo(this.genelCont)
+            this.text.addTo(this.genelCont)
+            this.drag({currentTarget:true})
+            this.genelCont.transform({
+                
+                visible:false,
+            })
+
+            
+              
+            this.genelCont.on("click",function(){
+                
+                
+            
+                denemeFun()
+            })
+              
+              
+
+         }
+
+    }
+}) // end of F.loadAssets
+    
+}
+
+    
+
+    </script>
+    </head>
+</html>
